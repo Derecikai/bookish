@@ -7,11 +7,16 @@
  height: 80px;
  background-color: rgb(255, 255, 255);
  border-radius: 15px;
- box-shadow: 5px 5px 80px 0px black;
+ box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.678);
 }
-.nav_logo{
- font-family: 'Smooch', cursive;
- font-size: 90px;
+.logo-div{
+  flex: 1;
+}
+.logo-type-shi{
+  margin-left: 70px;
+  width: 300px;
+  height: 80px;
+  
 }
 .nav_links{
  flex: 1;
@@ -22,8 +27,8 @@
 
 }
 .nav_links li{
- margin-left: 30px;
-font-family: 'Sorts Mill Goudy', serif;
+ margin-left: 50px;
+font-family:  'Libre Caslon Text', serif;
  font-size: 26px;
 
 }
@@ -57,14 +62,14 @@ font-family: 'Sorts Mill Goudy', serif;
  color: rgb(0, 0, 0);
 font-family: 'Sorts Mill Goudy', serif;
  font-size: 28px;
- background-color: rgb(59, 224, 59);
+ background-color: rgb(224, 166, 59);
  padding: 6px;
  border-radius: 9px;
  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
 }
 .sign-up:hover{
  transform: rotate(3deg);
- background-color: rgb(224, 166, 59);
+ background-color: rgb(59, 224, 59);
 }
 .log-in:hover{
  color: rgb(59, 224, 59);

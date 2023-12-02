@@ -44,7 +44,7 @@ const onSubmit = async (formData) => {
     try {
 
       // Make a POST request to your login endpoint
-      const response = await axios.get('http://localhost:8080/api/v1/auth/authenticate');
+      const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate');
      console.log(response.data);
 
 

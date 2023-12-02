@@ -1,18 +1,21 @@
 import {Link} from 'react-router-dom';
 import './Navbar.css'
+import myImage from './Screenshot_67.jpg'
 
 const Navbar = () => {
   return (
     <div className='nav_container'>
+
       
-      <div className='nav_logo'> Bookish</div>
+      <div className='logo-div'>
+      <img className='logo-type-shi' src={myImage} alt="" /></div>
       
       <ul className='nav_links'>
         <li>
           <Link to={"#"}>FLO</Link>
           </li>
         <li>
-          <Link to={"#"}>ANUNTURI</Link>
+          <Link to={"/anunturi"}>ANUNTURI</Link>
           </li>
         <li>
           <Link to={"#"}>FLO3</Link>
