@@ -8,10 +8,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../Login/Login.css'
 import * as yup from 'yup';
 import './SignUp.css';
+import { useAuth } from '../Contexts/AuthContext';
+
 
 const SignUp = () => {
 
 const navigate = useNavigate();
+
+const {login} = useAuth();
 
   //  const { setprofileData } = useUser();
   
@@ -71,6 +75,11 @@ const onSubmit = async (formData) => {
       // Assuming your token is in response.data.token
       // Save the token or perform any other actions
       console.log('Login successful. Token:', response.data.token);
+     
+
+    //We update the context
+     login(response.data.token)
+
       // Redirect the user or perform any other actions
       navigate('/anunturi'); // Change '/dashboard' to your desired route
     } else {
