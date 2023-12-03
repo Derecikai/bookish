@@ -15,10 +15,10 @@ const Navbar = () => {
           <Link to={"#"}>FLO</Link>
           </li>
         <li>
-          <Link to={"/anunturi"}>ANUNTURI</Link>
+          <Link to={"/anunturi"}>Anunturi</Link>
           </li>
-        <li>
-          <Link to={"#"}>FLO3</Link>
+          <li>
+          <Link to={"/anunturi"}>Home</Link>
           </li>
       </ul>
       

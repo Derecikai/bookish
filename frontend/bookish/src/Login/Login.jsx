@@ -20,7 +20,7 @@ const navigate = useNavigate();
   //  const { login, isLoggedIn } = useAuth();
 
   const schema = yup.object().shape({
-   username: yup.string().required("Your Username is required!"),
+   email: yup.string().required("Your email is required"),
    
    password: yup.string().min(4).max(100).required("A Password is needed at least 4 cahracters"),
   });
@@ -41,25 +41,32 @@ const {register, handleSubmit, formState:{errors} } = useForm(
 
 
 const onSubmit = async (formData) => {
-    try {
+  try {
+    setLoading(true); // Set loading to true while making the request
 
-      // Make a POST request to your login endpoint
-      const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate');
-     console.log(response.data);
+    // Make a POST request to your login endpoint
+    const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', {
+      password: formData.password,
+      email: formData.email,
+    });
 
-
-         if (response.data) {
-
-        navigate('/profile'); // Redirect to the desired location
-        setPass(false);
-
-         } 
-    } catch (error) {
-
-       setLoading(false); // Set loading to false in case of an error
-      console.error('Error during login:', error);
+    if (response.data && response.data.token) {
+      // Assuming your token is in response.data.token
+      // Save the token or perform any other actions
+      console.log('Login successful. Token:', response.data.token);
+      // Redirect the user or perform any other actions
+      navigate('/anunturi'); // Change '/dashboard' to your desired route
+    } else {
+      console.error('Login failed. Unexpected response:', response);
+      // Handle unsuccessful login (e.g., show an error message)
+      setPass(true); // Set pass state to true for indicating incorrect login
     }
-  };
+  } catch (error) {
+    setLoading(false); // Set loading to false in case of an error
+    console.error('Error during login:', error);
+    // Handle error, show user-friendly message or redirect to an error page
+  }
+};
   
 
 
@@ -73,9 +80,9 @@ const onSubmit = async (formData) => {
      onSubmit={handleSubmit(onSubmit)}>
 
 
-     <p >Username or Email</p>
+     <p >Email</p>
 
-    <input  type='text' placeholder='UserName' {...register("username")} />
+    <input  type='text' placeholder='Email' {...register("email")} />
 
     <p >{errors.username?.message}</p>
 

@@ -5,17 +5,17 @@
   align-items: center;
  justify-content: center;
  height: 80px;
- background-color: rgb(255, 255, 255);
- border-radius: 15px;
- box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.678);
+ background-color: rgb(0, 0, 0);
+ /* border: 2px solid black; */
+ /* border-radius: 15px; */
 }
 .logo-div{
   flex: 1;
 }
 .logo-type-shi{
-  margin-left: 70px;
-  width: 300px;
-  height: 80px;
+  margin-left: 60px;
+  width: 270px;
+  height: 83px;
   
 }
 .nav_links{
@@ -33,15 +33,20 @@ font-family:  'Libre Caslon Text', serif;
 
 }
 .nav_links li a{
+  font-size: 23px;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   transition: all 0.2s ease-in-out;
 }
 .nav_links li a:hover{
-  color: rgb(59, 224, 59);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 9px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-
-
 .auth_nav{
  flex: 1;
  text-align: center;
@@ -51,28 +56,26 @@ font-family:  'Libre Caslon Text', serif;
 }
 
 .log-in{
- color: rgb(0, 0, 0);
- font-family: 'Playfair Display', serif;
- font-size: 28px; 
- transition: all 0.3s ease-in-out;
+ color: rgb(255, 255, 255);
+ font-family: 'Libre Caslon Text', serif;
+ font-size: 23px; 
+ transition: all 0.1s ease-in-out;
 }
 .sign-up{
  display: inline-block;
- margin-left: 40px;
+ margin-left: 26px;
  color: rgb(0, 0, 0);
 font-family: 'Sorts Mill Goudy', serif;
- font-size: 28px;
- background-color: rgb(224, 166, 59);
- padding: 6px;
+ font-size: 23px;
+ background-color: rgb(255, 255, 255);
+ padding: 8px;
  border-radius: 9px;
- transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+ transition: background-color 0.3s ease-in-out, transform 0.2s ease, color 0.3s ease-in-out;
 }
 .sign-up:hover{
  transform: rotate(3deg);
- background-color: rgb(59, 224, 59);
-}
-.log-in:hover{
- color: rgb(59, 224, 59);
+ background-color: rgb(224, 166, 59);
+ color: white;
 }
 .nav_logo{
  color: rgb(224, 166, 59);

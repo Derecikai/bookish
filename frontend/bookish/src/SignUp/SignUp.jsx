@@ -25,6 +25,14 @@ const navigate = useNavigate();
    email: yup.string().email().required("Your email is required"),
 
    fullName: yup.string().required("Your FullName is required!"),
+
+   profilePicture: yup.string().required("Your Picture is required"),
+
+   bio: yup.string().required("Your Bio is required"),
+
+   location: yup.string().required("Please insert your location"),
+
+
   });
 
 
@@ -47,23 +55,34 @@ const {register, handleSubmit, formState:{errors} } = useForm(
  
 const onSubmit = async (formData) => {
     try {
-
+       
+      const newData = {
+        ...formData,
+         privacySettings: "default",
+         role: "USER",
+      }
       // Make a POST request to your login endpoint
-      const response = await axios.get('http://localhost:8080/api/v1/auth/register');
+      const response = await axios.post('http://localhost:8080/api/v1/auth/register',
+       newData);
+
      console.log(response.data);
 
-
-         if (response.data) {
-
-        navigate('/profile'); // Redirect to the desired location
-        setPass(false);
-
-         } 
-    } catch (error) {
-
-       setLoading(false); // Set loading to false in case of an error
-      console.error('Error during login:', error);
+        if (response.data && response.data.token) {
+      // Assuming your token is in response.data.token
+      // Save the token or perform any other actions
+      console.log('Login successful. Token:', response.data.token);
+      // Redirect the user or perform any other actions
+      navigate('/anunturi'); // Change '/dashboard' to your desired route
+    } else {
+      console.error('Login failed. Unexpected response:', response);
+      // Handle unsuccessful login (e.g., show an error message)
+      setPass(true); // Set pass state to true for indicating incorrect login
     }
+  } catch (error) {
+    setLoading(false); // Set loading to false in case of an error
+    console.error('Error during login:', error);
+    // Handle error, show user-friendly message or redirect to an error page
+  }
   };
 
 
@@ -103,7 +122,7 @@ const onSubmit = async (formData) => {
 
     <p >picturelink</p>
 
-    <input  type='picture' placeholder='porfile-pic-link' {...register("profilepic")}  />
+    <input  type='picture' placeholder='porfile-pic-link' {...register("profilePicture")}  />
 
     <p >{errors.profilepic?.message}</p>
 
