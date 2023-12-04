@@ -18,6 +18,8 @@
 }
 .nav_placeholder{
    height: 83px;
+   width: 100%;
+   background-color: #32746D;
 }
 .logo-div{
   margin-top: 15px;
