@@ -9,18 +9,39 @@ const Navbar = () => {
 
   const { logout, isLoggedIn} = useAuth();
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
   
+  useEffect(() =>{
+
+
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 125;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+  },[])
+
+
+
 
   return (
-    <div className='nav_container'>
 
-      
-      <div className='logo-div'>
-      <img className='logo-type-shi' src={myImage} alt="" /></div>
+    <>
+      <div className="nav_placeholder" />
+      <div className={`nav_container ${scrolled ? "scrolled" : ""}`}>
+        <div className='logo-div'>
+        Bookish
+      </div>
       
       <ul className='nav_links'>
         <li>
-          <Link to={"#"}>FLO</Link>
+          <Link to={"#"}>Noutati</Link>
           </li>
         <li>
           <Link to={"/anunturi"}>Anunturi</Link>
@@ -51,8 +72,8 @@ const Navbar = () => {
     </>
   )}
       </div>
-      
       </div>
+    </>      
   )
 }
 

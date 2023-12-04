@@ -3,6 +3,7 @@ import React from 'react'
 const PleaseLogIn = () => {
   return (
     <div style={{ 
+      height: '1000px',
   fontSize: '60px',  // Adjust the font size as needed
   color: 'black',
   textAlign: 'center',

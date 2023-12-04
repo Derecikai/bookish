@@ -25,6 +25,7 @@ const Anunturi = () => {
    return auth ? (
     <div className='anunturi-container'>
       <div className='anunturi-form-Container'>
+        <div className='hero'>Aici is ceva info legate de lsadasdsad</div>
         <Anunt />
         <Anunt />
         <Anunt />
