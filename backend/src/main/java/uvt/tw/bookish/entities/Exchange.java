@@ -14,7 +14,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "exchanges")
+@Table(name = "EXCHANGES")
 public class Exchange {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,7 @@ public class Exchange {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"password","email","fullName","profilePicture","bio","location","privacySettings"})
+    @JsonIgnoreProperties({"password","email","fullName","profilePicture","bio","location","privacySettings","role","enabled","accountNonExpired","credentialsNonExpired","authorities","accountNonLocked"})
     private User ownerID;
 
     private Date exchangeDate;
