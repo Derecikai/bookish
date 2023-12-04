@@ -10,7 +10,7 @@ a {
  border-radius: 10px;
  width: 89%;
  height: 70px;
- background-color: #cfcbcdab;
+ background-color: #bbbabbe8;
  margin-top: 30px;
  transition: all 0.2s ease-in;
 }
@@ -19,7 +19,7 @@ a {
  color: rgb(255, 255, 255);
  font-size: 40px;
  text-shadow: 7px 7px 4px #00000057;
- box-shadow:4px 4px 6px 2px #00000057;
+ box-shadow:4px 4px 6px 2px #2a2e4594;
  
  /* box-shadow: 10px 10px 80px 0px rgb(134, 132, 132); */
 }
