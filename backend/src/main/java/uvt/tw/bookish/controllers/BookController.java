@@ -38,6 +38,21 @@ public class BookController {
         List<Genre> genre = genreService.getAll();
         return ResponseEntity.ok(genre);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Book>> getBookByFields(@RequestParam(required = false) Integer id,
+                                                      @RequestParam(required = false) String title,
+                                                      @RequestParam(required = false) String author,
+                                                      @RequestParam(required = false) Integer genreID,
+                                                      @RequestParam(required = false) String isbn) {
+        List<Book> searchResult = bookService.getBookByFields(id,title,author,genreID,isbn);
+
+        if(searchResult.isEmpty()){
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(searchResult);
+        }
+    }
     @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> book = bookService.getAllBooks();

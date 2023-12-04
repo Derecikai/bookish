@@ -23,6 +23,7 @@ CREATE TABLE BOOKS (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        title VARCHAR(255) NOT NULL,
                        author VARCHAR(255) NOT NULL,
+                       thumb VARCHAR(255),
                        genre_id INT,
                        ISBN VARCHAR(20),
                        description VARCHAR(255),

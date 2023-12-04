@@ -21,6 +21,8 @@ public class Book {
 
     private String author;
 
+    private String thumb;
+
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genreID;
