@@ -1,0 +1,109 @@
+.nav_container{
+  position: relative;
+ width: 100%;
+ display: flex;
+  align-items: center;
+ justify-content: center;
+ height: 83px;
+ background-color: #32746D;
+ position: fixed;
+ top: 0px;
+ transition: background-color 0.4s ease-in, height 0.2s ease-in,border-radius 0.4s ease-in ;
+}
+.nav_container.scrolled {
+  backdrop-filter: blur(20px);
+  background-color: #32746d57;
+  height: 70px; /* Adjust the alpha value for transparency */
+  border-radius: 10px;
+}
+.nav_placeholder{
+   height: 83px;
+   width: 100%;
+   background-color: #32746D;
+}
+.logo-div{
+  margin-top: 15px;
+  font-size: 65px;
+  color: #E9E3E6;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  /* margin-right: px; */
+  flex: 1;
+}
+.logo-type-shi{
+  /* border-radius: 10px; */
+  margin-left: 60px;
+  margin-bottom: 4px;
+  width: 270px;
+  height: 78px;
+  
+  
+}
+.nav_links{
+  margin-left: 11px;
+ flex: 1;
+ display: flex;
+ justify-content: start;
+ list-style: none;
+  text-align: center;
+
+}
+.nav_links li{
+ margin-left: 32px;
+font-family:  'Libre Caslon Text', serif;
+ font-size: 26px;
+}
+.nav_links li:nth-child(2),
+.nav_links li:nth-child(3){
+  margin-left: 64px;
+}
+.nav_links li a{
+  
+  font-size: 23px;
+  text-decoration: none;
+  color: #E9E3E6;border-radius: 9px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  transition: all 0.2s ease-in-out;
+}
+.nav_links li a:hover{
+  color: #32746D;
+  background-color: #E9E3E6;
+}
+.auth_nav{
+ flex: 1;
+ text-align: center;
+}
+.auth_nav a{
+ text-decoration: none;
+}
+
+.log-in{
+ color: #E9E3E6;
+ font-family: 'Libre Caslon Text', serif;
+ font-size: 23px; 
+}
+.sign-up{
+  font-weight: bold;
+ display: inline-block;
+ margin-left: 26px;
+ color: #32746D;
+font-family: 'Sorts Mill Goudy', serif;
+ font-size: 23px;
+ background-color: #E9E3E6;
+ padding: 8px;
+ border-radius: 9px;
+ transition: background-color 0.3s ease-in-out, transform 0.2s ease, color 0.3s ease-in-out;
+}
+.sign-up:hover{
+ transform: rotate(3deg);
+ background-color: #94778B;
+ color: #e9e3e6d5;
+}
+.nav_logo{
+ color: rgb(224, 166, 59);
+ text-align: center;
+ flex: 1;
+}
