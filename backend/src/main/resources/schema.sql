@@ -30,12 +30,12 @@ CREATE TABLE BOOKS (
 );
 
 -- Creating EXCHANGE table
-CREATE TABLE EXCHANGE (
+CREATE TABLE EXCHANGES (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           book_id_1 INT,
                           book_id_2 INT,
                           owner_id INT,
-                          exchangeDate DATE,
+                          exchange_date DATE,
                           status VARCHAR(255),
                           condition VARCHAR(255),
                           FOREIGN KEY (book_id_1) REFERENCES BOOKS(id),
