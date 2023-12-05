@@ -5,6 +5,8 @@ import Navbar from './Navbar/Navbar';
 import Login from './Login/Login';
 import SignUp from './SignUp/SignUp';
 import Anunturi from './Anunturi/Anunturi';
+import DetaliAnunt from './DetaliiAnunt/DetaliAnunt';
+// import Adauga from './AdaugaAnunt/Adauga';
 // import About from './About';
 // import Contact from './Contact';
 
@@ -13,9 +15,11 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-         <Route path="/login" element={<Login />} />
-       <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/anunturi" element={<Anunturi />} />
+        <Route path="/anunturi/:id" element={<DetaliAnunt />} />
+        {/* <Route path="/adauga" element={<Adauga />} /> */}
       </Routes>
     </Router>
   );
