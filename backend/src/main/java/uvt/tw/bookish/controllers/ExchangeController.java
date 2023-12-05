@@ -10,6 +10,7 @@ import uvt.tw.bookish.entities.Exchange;
 import uvt.tw.bookish.services.ExchangeService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/exchanges")
@@ -23,6 +24,18 @@ public class ExchangeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
+    @GetMapping("/get")
+    public ResponseEntity<List<Exchange>> getExchanges(@RequestParam(defaultValue = "1") int page,
+                                                       @RequestParam(defaultValue = "5") int pageSize) {
+        List<Exchange> result = exchangeService.getExchanges(page, pageSize);
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/getExchange")
+    public ResponseEntity<Optional<Exchange>> getSpecificExchange(@RequestParam int id) {
+        Optional<Exchange> result = exchangeService.getExchangeByID(id);
+        return ResponseEntity.ok(result);
+    }
     @GetMapping("/all")
     public ResponseEntity<List<Exchange>> getAllExchanges() {
         List<Exchange> exchanges = exchangeService.getAllExchanges();

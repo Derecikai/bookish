@@ -53,6 +53,7 @@ public class BookController {
             return ResponseEntity.ok(searchResult);
         }
     }
+
     @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> book = bookService.getAllBooks();

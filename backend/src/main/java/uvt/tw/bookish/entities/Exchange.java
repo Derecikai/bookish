@@ -22,17 +22,17 @@ public class Exchange {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "book_id_1", referencedColumnName = "id")
-    @JsonIgnoreProperties({"author","genreID","ISBN","description"})
+    //@JsonIgnoreProperties({"author","genreID","ISBN","description"})
     private Book bookID1;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "book_id_2", referencedColumnName = "id")
-    @JsonIgnoreProperties({"author","genreID","ISBN","description"})
+    //@JsonIgnoreProperties({"author","genreID","ISBN","description"})
     private Book bookID2;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"password","email","fullName","profilePicture","bio","location","privacySettings","role","enabled","accountNonExpired","credentialsNonExpired","authorities","accountNonLocked"})
+    @JsonIgnoreProperties({"password","email","fullName","bio","privacySettings","role","enabled","accountNonExpired","credentialsNonExpired","authorities","accountNonLocked"})
     private User ownerID;
 
     private Date exchangeDate;

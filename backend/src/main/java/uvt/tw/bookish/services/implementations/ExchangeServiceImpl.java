@@ -1,6 +1,9 @@
 package uvt.tw.bookish.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import uvt.tw.bookish.controllers.requests.ExchangeRequest;
 import uvt.tw.bookish.entities.Book;
@@ -12,6 +15,7 @@ import uvt.tw.bookish.repositories.UserRepository;
 import uvt.tw.bookish.services.ExchangeService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
@@ -44,5 +48,17 @@ public class ExchangeServiceImpl implements ExchangeService {
     @Override
     public List<Exchange> getAllExchanges() {
         return exchangeRepository.findAll();
+    }
+
+    @Override
+    public List<Exchange> getExchanges(int page, int pageSize) {
+        Pageable pageable = PageRequest.of(page - 1, pageSize);
+        Page<Exchange> exchangePage = exchangeRepository.findAll(pageable);
+        return exchangePage.getContent();
+    }
+
+    @Override
+    public Optional<Exchange> getExchangeByID(int id) {
+        return exchangeRepository.findById(id);
     }
 }
