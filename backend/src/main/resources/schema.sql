@@ -39,6 +39,7 @@ CREATE TABLE EXCHANGES (
                           exchange_date DATE,
                           status VARCHAR(255),
                           condition VARCHAR(255),
+                          comment VARCHAR(255),
                           FOREIGN KEY (book_id_1) REFERENCES BOOKS(id),
                           FOREIGN KEY (book_id_2) REFERENCES BOOKS(id),
                           FOREIGN KEY (owner_id) REFERENCES _USERS(id)

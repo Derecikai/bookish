@@ -94,27 +94,28 @@ VALUES (
            'Good'
        );
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition)
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment)
 VALUES (
         6,
         7,
         1,
         '2023-12-5',
         'Pending',
-        'Excelent'
+        'Excelent',
+        'Nu bate nu troncane'
        );
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition) VALUES
-    (4, 5, 2, '2023-12-02', 'Pending', 'Very Good');
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
+    (4, 5, 2, '2023-12-02', 'Pending', 'Very Good', 'Nu bate nu troncane');
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition) VALUES
-    (7, 8, 1, '2023-12-03', 'Pending', 'Excellent');
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
+    (7, 8, 1, '2023-12-03', 'Pending', 'Excellent', 'Nu bate nu troncane');
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition) VALUES
-    (10, 11, 2, '2023-12-04', 'Approved', 'Good');
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
+    (10, 11, 2, '2023-12-04', 'Approved', 'Good', 'Nu bate nu troncane');
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition) VALUES
-    (13, 14, 1, '2023-12-05', 'Pending', 'Fair');
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
+    (13, 14, 1, '2023-12-05', 'Pending', 'Fair', 'Nu bate nu troncane');
 
-INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition) VALUES
-    (16, 17, 2, '2023-12-06', 'Approved', 'Like New');
+INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
+    (16, 17, 2, '2023-12-06', 'Approved', 'Like New', 'Nu bate nu troncane');

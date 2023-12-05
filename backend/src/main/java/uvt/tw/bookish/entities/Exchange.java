@@ -40,4 +40,6 @@ public class Exchange {
     private String status;
 
     private String condition;
+
+    private String comment;
 }
