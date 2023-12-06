@@ -4,6 +4,7 @@ import Anunt from './Anunt';
 import { Link,useNavigate } from 'react-router-dom';
 import PleaseLogin from "../PleaseLogIn";
 import axios from 'axios';
+import SearchBar from './Search';
 
 const Anunturi = () => {
    
@@ -20,7 +21,7 @@ const Anunturi = () => {
       try{
 
       const response = await axios.get('http://localhost:8080/exchanges/all')
-      console.log(response.data)
+      console.log("This is",response.data[2].id)
       setInfo(response.data);
     }
 catch(err){
@@ -49,11 +50,13 @@ catch(err){
    return auth ? (
     <div className='anunturi-container'>
       <div className='anunturi-form-Container'>
-        <div className='hero slide-in'>Aici se produc schimburi de carti</div>
+        <div className='hero slide-in'><SearchBar /></div>
 
         {info && 
             info.map( item => (
+            
               <Anunt data={item}/>
+             
             ) )}
       </div>
     </div>

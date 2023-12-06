@@ -57,7 +57,7 @@ const Navbar = () => {
       <Link className='log-in' to='/login' onClick={logout}>
         Log Out
       </Link>
-      <Link className='sign-up' to='/adaugaAnunt'>
+      <Link className='sign-up' to='/adauga'>
         Adauga Anunt
       </Link>
     </>
