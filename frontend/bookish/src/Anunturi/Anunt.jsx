@@ -6,6 +6,8 @@ import { HiUser } from "react-icons/hi";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 
 
+// Aici doar primim de la Anunturi niste date prin propuri si le randam cu niste css
+
 const Anunt = (item) => {
   console.log(item.data.id);
 
@@ -30,7 +32,7 @@ const formattedDate = date.toLocaleDateString();
 
            <div className='left-part'>
     {<img className='book1-pic' src={item.data.bookID1.thumb} alt="picbook1" />}
-    {item.data.bookID1.title}
+    <div classname="text-left-part" >{item.data.bookID1.title}</div>
            </div>
 
        <div className='right-part'> 

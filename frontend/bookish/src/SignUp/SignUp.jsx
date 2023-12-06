@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import './SignUp.css';
 import { useAuth } from '../Contexts/AuthContext';
 
-
+//Componenta pt sign up
 const SignUp = () => {
 
 const navigate = useNavigate();
@@ -20,6 +20,8 @@ const {login} = useAuth();
   //  const { setprofileData } = useUser();
   
   //  const { login, isLoggedIn } = useAuth();
+
+  //avem schema pt a verifica datele din form
 
   const schema = yup.object().shape({
    username: yup.string().required("Your Username is required!"),
@@ -45,7 +47,7 @@ const {login} = useAuth();
 
    
 
-   
+   //scoatem din use form registeru handlesubmitu si erorile, si facem sa ne compare ce am scris cu schema noastra
 const {register, handleSubmit, formState:{errors} } = useForm(
   {
     resolver: yupResolver(schema),
@@ -55,11 +57,13 @@ const {register, handleSubmit, formState:{errors} } = useForm(
 
 
 
-
+//Functia care se apeleaza cand dam submit
  
 const onSubmit = async (formData) => {
     try {
        
+      //punem niste data aici, care le prelucram putin, si dupa le postam 
+
       const newData = {
         ...formData,
          privacySettings: "default",
@@ -96,7 +100,7 @@ const onSubmit = async (formData) => {
 
 
 
-
+ //Aici este html cu formul
   return (
     <div className='signup-container'>
      <div className='signup-form-Container'>

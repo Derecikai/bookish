@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className='logo-div'>
         Bookish
       </div>
-      
+      {/* aici avem linkurile */}
       <ul className='nav_links'>
         <li>
           <Link to={"#"}>Noutati</Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <Link to={"/home"}>Home</Link>
           </li>
       </ul>
-      
+      {/* aici in functie daca e login sau nu aratam anumite lucruri */}
       <div className='auth_nav'>
         {isLoggedIn ? (
     <>

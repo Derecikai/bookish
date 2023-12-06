@@ -4,7 +4,7 @@ import axios from "axios"
 export const AuthContext = createContext();
 
 
-
+//aici avem un context care tine tokenu si state-ul pentru logged in
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('jwtToken'));
 

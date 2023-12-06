@@ -22,6 +22,8 @@ const navigate = useNavigate();
   
   //  const { login, isLoggedIn } = useAuth();
 
+//vezi sign up pentru explicatie usage of form
+
   const schema = yup.object().shape({
    email: yup.string().required("Your email is required"),
    

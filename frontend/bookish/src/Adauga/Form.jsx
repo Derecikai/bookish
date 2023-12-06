@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import "./Form.css"
 
+//aici este un formular, vezi sign up pt explicatie formular, si aici practic adauga o carte in db, daca utilizatorul nu gasestre cartea.
+
 const schema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   author: Yup.string().required('Author is required'),

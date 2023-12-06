@@ -9,6 +9,8 @@ import DetaliAnunt from './DetaliiAnunt/DetaliAnunt';
 import Adauga from './Adauga/Adauga';
 
 
+//Aici avem rutele si componentele specifice pt ele
+
 const App = () => {
   return (
     <Router>

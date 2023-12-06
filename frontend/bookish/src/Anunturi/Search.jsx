@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+//aici avem searchbar componenta si luam un filter cu un query si dam query in DB cu acel query si afisam rezultatele la ce am gasit(query-urile pot fi id title isbn sau author)
 const SearchBar = ({ onSelectBook }) => {
   const [filter, setFilter] = useState('id'); // Default filter
   const [query, setQuery] = useState('');

@@ -7,6 +7,7 @@ import axios from 'axios';
 // import jwt from 'jsonwebtoken';
 import { jwtDecode } from 'jwt-decode';
 
+//aici se face practic adaugare exchange urilor, se pune din DB cartea care o ai si cartea pe care vrei si dupa mai adaugi niste info 2 campuri, si dupa dai submit si ai adaugat exchange
 
 const Adauga = () => {
 

@@ -14,6 +14,7 @@ const DetaliAnunt = () => {
     const {id} = useParams();
   const {isLoggedIn} = useContext(AuthContext)
 
+  //aici luam id din url ca sa il punem la fetch cand se rendeaza pagina, ca sa putem sa dam refersh si sa avem acelasi lucru dupa avem niste jsx stylata pentru a afisa informatile
 
    useEffect ( () =>{
 

@@ -5,7 +5,7 @@ import { Link ,useNavigate } from 'react-router-dom';
 import PleaseLogin from "../PleaseLogIn";
 import axios from 'axios';
 import SearchBar from './Search';
-
+//aici avem anunturi cu pagination porning de la pagina 1 si primim data de pe  prima pagina, unde lle ducem ca prop pt anunt ca sa randeze componenta
 const Anunturi = () => {
    
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ catch(err){
    return auth ? (
     <div className='anunturi-container'>
       <div className='anunturi-form-Container'>
-        <div className='hero slide-in'><SearchBar />
+        <div className='hero slide-in'>Search and Filter Coming Soon
         <div className='buttons'>
         <button className='buton' onClick={() =>{
           if(count > 1 )
