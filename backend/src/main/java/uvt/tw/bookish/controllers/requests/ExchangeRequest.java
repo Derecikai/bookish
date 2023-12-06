@@ -12,10 +12,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExchangeRequest {
+    //private int id;
     private int bookID1;
     private int bookID2;
     private int ownerID;
     private Date exchangeDate;
     private String status;
     private String condition;
+    private String comment;
 }

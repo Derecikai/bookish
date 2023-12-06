@@ -1,5 +1,6 @@
 package uvt.tw.bookish.services.implementations;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,20 +30,24 @@ public class ExchangeServiceImpl implements ExchangeService {
     private UserRepository userRepository;
 
     @Override
+    @Transactional
     public Exchange addExchange(ExchangeRequest exchange) {
         Book book1 = bookRepository.findById(exchange.getBookID1()).orElseThrow();
         Book book2 = bookRepository.findById(exchange.getBookID2()).orElseThrow();
         User owner = userRepository.findById(exchange.getOwnerID()).orElseThrow();
 
         // Use the builder to create the Exchange object
-        return Exchange.builder()
-                .bookID1(book1)
-                .bookID2(book2)
-                .ownerID(owner)
-                .exchangeDate(exchange.getExchangeDate())
-                .status(exchange.getStatus())
-                .condition(exchange.getCondition())
-                .build();
+        Exchange result = Exchange.builder()
+                            .bookID1(book1)
+                            .bookID2(book2)
+                            .ownerID(owner)
+                            .exchangeDate(exchange.getExchangeDate())
+                            .status(exchange.getStatus())
+                            .condition(exchange.getCondition())
+                            .comment(exchange.getComment())
+                            .build();
+
+        return exchangeRepository.save(result);
     }
 
     @Override
