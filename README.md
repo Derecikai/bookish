@@ -23,8 +23,6 @@ Bookish allows users to create profiles, list their books for exchange, find nea
 
 - **Search and Filters:** Robust search engine with filters for genre, author, location, or book condition.
 
-- **Geolocation:** Find exchange opportunities nearby with map integration.
-
 - **Messaging:** Built-in messaging system to discuss exchange details and arrange meetups.
 
 - **User Ratings and Reviews:** Rate and review exchange partners and received books. Highlight trustworthy users with a rating system.
