@@ -7,7 +7,7 @@ VALUES (
            'John Doe',
            'profile.jpg',
            'This is a short bio about the user.',
-           'City, Country',
+           'Timisoara',
            'default',
            'USER'
        );
@@ -20,7 +20,7 @@ VALUES (
         'The Strongest Curse',
         'profile.jpg',
         'As Jogoat, the king of curses',
-        'Shibuya, Japanm',
+        'Arad',
         'defaul',
         'USER'
        );
@@ -54,34 +54,34 @@ INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('Bible', 'Multiple authors', 'https://m.media-amazon.com/images/I/71ArT4HkssL._SL1013_.jpg', 1, '978-0804109062', 'The holy bible');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Great Gatsby', 'F. Scott Fitzgerald', 'gatsby.jpg', 1, '978-3-16-148410-0', 'A classic novel depicting the Jazz Age society in the United States.');
+('The Great Gatsby', 'F. Scott Fitzgerald', 'https://m.media-amazon.com/images/I/61z0MrB6qOS._SL1500_.jpg', 1, '978-3-16-148410-0', 'A classic novel depicting the Jazz Age society in the United States.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('Pride and Prejudice', 'Jane Austen', 'pride.jpg', 5, '978-0-19-953556-9', 'A timeless novel exploring themes of love, class, and societal expectations.');
+('Pride and Prejudice', 'Jane Austen', 'https://m.media-amazon.com/images/I/910oVuxR8lS._SL1500_.jpg', 5, '978-0-19-953556-9', 'A timeless novel exploring themes of love, class, and societal expectations.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Hobbit', 'J.R.R. Tolkien', 'hobbit.jpg', 5, '978-0-261-10219-4', 'An adventure novel set in Tolkien''s Middle-earth, following the journey of Bilbo Baggins.');
+('The Hobbit', 'J.R.R. Tolkien', 'https://m.media-amazon.com/images/I/81-JdmZeA9L._SL1500_.jpg', 5, '978-0-261-10219-4', 'An adventure novel set in Tolkien''s Middle-earth, following the journey of Bilbo Baggins.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Hunger Games', 'Suzanne Collins', 'hungergames.jpg', 2, '978-0-439-02348-1', 'A dystopian novel set in a future where young people are forced to participate in a televised death match.');
+('The Hunger Games', 'Suzanne Collins', 'https://m.media-amazon.com/images/I/614SwlZNtJL._SL1200_.jpg', 2, '978-0-439-02348-1', 'A dystopian novel set in a future where young people are forced to participate in a televised death match.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Da Vinci Code', 'Dan Brown', 'davinci.jpg', 3, '978-0-385-50420-1', 'A mystery thriller involving symbology, secret societies, and the quest for a hidden religious truth.');
+('The Da Vinci Code', 'Dan Brown', 'https://www.books-by-isbn.com/spix/na-0385504209---Vinci---513jDWxi4nL.jpg', 3, '978-0-385-50420-1', 'A mystery thriller involving symbology, secret societies, and the quest for a hidden religious truth.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Lord of the Rings', 'J.R.R. Tolkien', 'lotr.jpg', 5, '978-0-618-63422-6', 'An epic fantasy trilogy set in Middle-earth, depicting the struggle against the Dark Lord Sauron.');
+('The Lord of the Rings', 'J.R.R. Tolkien', 'https://m.media-amazon.com/images/I/81XH+m22mjL._SL1500_.jpg', 5, '978-0-618-63422-6', 'An epic fantasy trilogy set in Middle-earth, depicting the struggle against the Dark Lord Sauron.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'harrypotter.jpg', 1, '978-0-590-35340-3', 'The first book in the Harry Potter series, following the young wizard''s journey at Hogwarts School of Witchcraft and Wizardry.');
+('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'https://pictures.abebooks.com/isbn/9780590353403-us.jpg', 1, '978-0-590-35340-3', 'The first book in the Harry Potter series, following the young wizard''s journey at Hogwarts School of Witchcraft and Wizardry.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('Jurassic Park', 'Michael Crichton', 'jurassicpark.jpg', 1, '978-0-345-37077-8', 'A science fiction novel about the cloning of dinosaurs for a theme park.');
+('Jurassic Park', 'Michael Crichton', 'https://www.publishersweekly.com/cover/9780345370778', 1, '978-0-345-37077-8', 'A science fiction novel about the cloning of dinosaurs for a theme park.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Great Escape', 'Paul Brickhill', 'greatescape.jpg', 2, '978-0-312-56660-6', 'A non-fiction account of a mass escape from a German prisoner-of-war camp during World War II.');
+('The Great Escape', 'Paul Brickhill', 'https://m.media-amazon.com/images/I/61WRzdWxgQL._SL1500_.jpg', 2, '978-0393325799', 'A non-fiction account of a mass escape from a German prisoner-of-war camp during World War II.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
-('The Martian', 'Andy Weir', 'martian.jpg', 4, '978-0-553-41802-6', 'A science fiction novel that follows an astronaut stranded on Mars and his struggle for survival.');
+('The Martian', 'Andy Weir', 'https://m.media-amazon.com/images/I/71SRkQ-DwZL._SL1500_.jpg', 4, '978-0-553-41802-6', 'A science fiction novel that follows an astronaut stranded on Mars and his struggle for survival.');
 
 --Inserting sample exchanges
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition)
