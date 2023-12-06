@@ -9,12 +9,14 @@
  position: fixed;
  top: 0px;
  transition: background-color 0.4s ease-in, height 0.2s ease-in,border-radius 0.4s ease-in ;
+ border-bottom: 1px solid #E9E3E6;
 }
 .nav_container.scrolled {
   backdrop-filter: blur(20px);
   background-color: #32746d57;
   height: 70px; /* Adjust the alpha value for transparency */
   border-radius: 10px;
+  z-index: 1;
 }
 .nav_placeholder{
    height: 83px;
