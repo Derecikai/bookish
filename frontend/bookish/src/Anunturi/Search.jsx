@@ -55,6 +55,7 @@ const SearchBar = ({ onSelectBook }) => {
           <li key={result.id}>
             {/* Display book information here */}
             <p>ID: {result.id}</p>
+            <img src={result.thumb} alt="" />
             <p>Title: {result.title}</p>
             <p>ISBN: {result.isbn}</p>
             <p>Author: {result.author}</p>

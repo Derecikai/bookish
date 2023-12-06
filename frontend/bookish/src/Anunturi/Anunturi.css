@@ -57,6 +57,7 @@ padding-bottom: 5px;
  display: inline-block;
 }
 .hero{
+  position: relative;
    border-top-right-radius: 10px;
    border-top-left-radius: 10px;
    width: 100%;
@@ -81,4 +82,15 @@ padding-bottom: 5px;
   100% {
     transform: translateX(0);
   }
+}
+
+.buttons{
+ position: absolute;
+ bottom: 0px;
+}
+.buton{
+  text-decoration: none;
+  background-color: #32746D;
+  border: 1px solid #E9E3E6;
+  border-radius: 10px;
 }

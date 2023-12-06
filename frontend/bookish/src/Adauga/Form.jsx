@@ -8,6 +8,7 @@ import "./Form.css"
 const schema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   author: Yup.string().required('Author is required'),
+  thumb: Yup.string().url('Invalid URL format'),
   genreID: Yup.object().shape({
     id: Yup.number().required('Genre ID is required'),
     genreName: Yup.string().required('Genre Name is required'),
@@ -53,6 +54,10 @@ const Form = () => {
       <label htmlFor="author">Author</label>
       <input type="text" id="author" {...register('author')} />
       <p>{errors.author?.message}</p>
+
+      <label htmlFor="thumb">Picture URL</label>
+      <input type="text" id="thumb" {...register('thumb')} />
+      <p>{errors.author?.thumb}</p>
 
       <label htmlFor="genreID.id">Genre ID</label>
       <input type="number" id="genreID.id" {...register('genreID.id')} />

@@ -18,7 +18,7 @@ a {
 }
 .anunt:hover{
  transform: translateX(10px);
- color: #E9E3E6;
+ color: #32746D;
  /* text-shadow: 7px 7px 4px #00000057; */
  box-shadow:4px 4px 6px 2px #2a2e4594;
  
@@ -74,3 +74,5 @@ display: flex;
  height: 100px;
  padding: 10px;
 }
+/* .arrow:hover{
+ /* color: #32746D; */

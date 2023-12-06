@@ -1,13 +1,23 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-const AuthContext = createContext();
+import axios from "axios"
+export const AuthContext = createContext();
 
 
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('jwtToken'));
 
-
+  // useEffect(() => {
+  //   const token = localStorage.getItem("jwtToken");
+  //   if(token){
+  //     // suntem logati
+  //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
+  //   } else {
+  //     // nu mai suntem logati
+  //     delete axios.defaults.headers.common["Authorization"]
+  //   }
+  // }, [isLoggedIn]);
   
   const login = (token) => {
     localStorage.setItem('jwtToken', token);

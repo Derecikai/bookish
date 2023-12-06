@@ -4,17 +4,31 @@ import PleaseLogin from "../PleaseLogIn";
 import SearchBar from '../Anunturi/Search';
 import Form from './Form';
 import axios from 'axios';
+// import jwt from 'jsonwebtoken';
+import { jwtDecode } from 'jwt-decode';
+
+
 const Adauga = () => {
 
 
  const [selectedBookHave, setSelectedBookHave] = useState(null);
   const [selectedBookWant, setSelectedBookWant] = useState(null);
+  const [status, setStatus] = useState('');
+  const [condition, setCondition] = useState('');
 const [auth, setAuth] = useState(false);
-
+const[userId, setUserId] = useState(false);
   useEffect(() => {
-const flo = localStorage.getItem('jwtToken');
+const token = localStorage.getItem('jwtToken');
 
-    if(flo){
+    if(token){
+      // const decodedToken = jwt.decode(jwtToken);
+      // //Aici gen iau sub(pus de mn) din payload care ar trebui sa fie id-ul userului, ca sa pot trimite id-ul ala undeva
+      // const subject = decodedToken ? decodedToken.sub : null;
+       const decoded = jwtDecode(token);
+       setUserId(decoded.sub);
+      // console.log(subject)
+
+      console.log(token);
       setAuth(true);
     }
   },[])
@@ -35,10 +49,10 @@ const flo = localStorage.getItem('jwtToken');
       const exchangeData = {
         bookID1: selectedBookHave.id,
         bookID2: selectedBookWant.id,
-        ownerID: 1,
+        ownerID: userId,
         exchangeDate: new Date().toISOString().split('T')[0], // Format as "YYYY-MM-DD"
-       status: "Pending",
-       condition: "Good",
+       status: status,
+       condition: condition,
       };
      console.log(exchangeData)
       try {
@@ -67,8 +81,24 @@ const flo = localStorage.getItem('jwtToken');
        <SearchBar onSelectBook={handleSelectBookHave}/>
        <h1>Book you want</h1>
        <SearchBar onSelectBook={handleSelectBookWant}/>
+       <label htmlFor="status">Status:</label>
+      <input
+        type="text"
+        id="status"
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+      />
+
+      <label htmlFor="condition">Condition:</label>
+      <input
+        type="text"
+        id="condition"
+        value={condition}
+        onChange={(e) => setCondition(e.target.value)}
+      />
        <h1>If we don't have it, Add it</h1>
        <Form />
+
         <button onClick={handleSubmit}>Submit Exchange</button>
       </div>
       </div>

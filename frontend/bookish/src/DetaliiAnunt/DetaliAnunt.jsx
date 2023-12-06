@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react'
+import {useEffect,useState, useContext} from 'react'
 import PleaseLogin from '../PleaseLogIn';
 import './DetaliAnunt.css';
 import axios from 'axios';
@@ -6,11 +6,13 @@ import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import { HiUser } from "react-icons/hi";
 import { useParams } from 'react-router-dom';
 
+import {AuthContext} from "../Contexts/AuthContext"
+
 const DetaliAnunt = () => {
   const [info, setInfo] = useState(null);
   const [auth, setAuth] = useState(false);
     const {id} = useParams();
-
+  const {isLoggedIn} = useContext(AuthContext)
 
 
    useEffect ( () =>{
@@ -47,7 +49,7 @@ const date = new Date(timestamp);
 
 const formattedDate = date.toLocaleDateString();
 
-return auth ? (
+return isLoggedIn ? (
   <div className='anunturi-container1'>
     <div className='anunturi-form-Container2'>
       <div className='schimb-container'>

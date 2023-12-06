@@ -1,3 +1,5 @@
 .yo{
- border: 6px solid greenyellow;
+ border: 2px solid #32746D;
+ border-radius: 10px;
+ padding: 4px;
 }
