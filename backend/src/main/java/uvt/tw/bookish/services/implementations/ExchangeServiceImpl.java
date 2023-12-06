@@ -58,6 +58,11 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
+    public Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable) {
+        return exchangeRepository.searchExchanges(bookTitle, genre, location, pageable);
+    }
+
+    @Override
     public Optional<Exchange> getExchangeByID(int id) {
         return exchangeRepository.findById(id);
     }
