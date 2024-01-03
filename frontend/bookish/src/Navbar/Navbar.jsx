@@ -47,7 +47,7 @@ const Navbar = () => {
           <Link to={"/anunturi"}>Anunturi</Link>
           </li>
           <li>
-          <Link to={"/home"}>Home</Link>
+          <Link to={"/dashboard"}>Dashboard</Link>
           </li>
       </ul>
       {/* aici in functie daca e login sau nu aratam anumite lucruri */}

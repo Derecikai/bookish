@@ -7,6 +7,7 @@ import SignUp from './SignUp/SignUp';
 import Anunturi from './Anunturi/Anunturi';
 import DetaliAnunt from './DetaliiAnunt/DetaliAnunt';
 import Adauga from './Adauga/Adauga';
+import Dashboard from './Dashboard/Dashboard';
 
 
 //Aici avem rutele si componentele specifice pt ele
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/anunturi" element={<Anunturi />} />
         <Route path="/anunturi/:id" element={<DetaliAnunt />} />
         <Route path="/adauga" element={<Adauga />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

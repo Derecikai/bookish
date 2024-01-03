@@ -9,7 +9,7 @@ a {
 .anunt{
  display: flex;
  flex-direction: row;
- border-radius: 10px;
+ border-radius: 6px;
  width: 89%;
  height: 170px;
  background-color: #bbbabbe8;
@@ -70,9 +70,9 @@ display: flex;
 }
 .arrow{
  flex:1;
- margin-top: 20px;
- width: 100px;
- height: 100px;
+ margin-top: 42px;
+ width: 60px;
+ height: 60px;
  padding: 10px;
 }
 /* .arrow:hover{

@@ -1,0 +1,46 @@
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Adjust the scale value as needed */
+
+
+.dash-background{
+ background-color: #bbbabbe8;
+ width: 89%;
+ margin-top: 50px;
+ height: 170px;
+ border-radius: 6px;
+ transition: all 0.2s ease-in;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+.dash-background:hover{
+  transform: translateX(10px);
+ color: #32746D;
+ /* text-shadow: 7px 7px 4px #00000057; */
+ box-shadow:4px 4px 6px 2px #2a2e4594;
+}
+.dash-buttons {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.dash-buttons button {
+ margin-left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color:#32746D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dash-buttons button:hover {
+  background-color: #45a049;
+}

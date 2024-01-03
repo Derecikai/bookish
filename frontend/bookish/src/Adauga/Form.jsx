@@ -15,7 +15,7 @@ const schema = Yup.object().shape({
     id: Yup.number().required('Genre ID is required'),
     genreName: Yup.string().required('Genre Name is required'),
   }),
-  isbn: Yup.string().required('ISBN is required'),
+  isbn: Yup.string().min(4).max(100).required('ISBN is required'),
   description: Yup.string().required('Description is required'),
 });
 
