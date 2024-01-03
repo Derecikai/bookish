@@ -47,6 +47,7 @@ public class ExchangeServiceImpl implements ExchangeService {
                             .comment(exchange.getComment())
                             .build();
 
+        System.out.println(result);
         return exchangeRepository.save(result);
     }
 

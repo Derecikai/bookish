@@ -44,3 +44,21 @@ CREATE TABLE EXCHANGES (
                           FOREIGN KEY (book_id_2) REFERENCES BOOKS(id),
                           FOREIGN KEY (owner_id) REFERENCES _USERS(id)
 );
+
+-- Creating BOOKSHELF table
+CREATE TABLE BOOKSHELF (
+                           id INT AUTO_INCREMENT,
+                           book_id INT,
+                           owner_id INT,
+                           FOREIGN KEY (book_id) REFERENCES BOOKS(id),
+                           FOREIGN KEY (owner_id) REFERENCES _USERS(id)
+);
+
+-- Creating WISHLIST table
+CREATE TABLE WISHLIST (
+                           id INT AUTO_INCREMENT PRIMARY KEY,
+                           book_id INT,
+                           owner_id INT,
+                           FOREIGN KEY (book_id) REFERENCES BOOKS(id),
+                           FOREIGN KEY (owner_id) REFERENCES _USERS(id)
+);

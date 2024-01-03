@@ -119,3 +119,23 @@ INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, co
 
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
     (16, 17, 2, '2023-12-06', 'Approved', 'Like New', 'Nu bate nu troncane');
+
+--Inserting sample bookshelf entries
+INSERT INTO BOOKSHELF (id, book_id, owner_id) VALUES
+    (1, 1, 1);
+
+INSERT INTO BOOKSHELF (id, book_id, owner_id) VALUES
+    (2, 2, 1);
+
+INSERT INTO BOOKSHELF (id, book_id, owner_id) VALUES
+    (3, 3, 2);
+
+--Inserting sample wishlist entries
+INSERT INTO WISHLIST (book_id, owner_id) VALUES
+    (7, 1);
+
+INSERT INTO WISHLIST (book_id, owner_id) VALUES
+    (8, 1);
+
+INSERT INTO WISHLIST (book_id, owner_id) VALUES
+    (5, 2);
