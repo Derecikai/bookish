@@ -10,7 +10,7 @@ import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 
 const Anunt = (item) => {
   console.log(item.data.id);
-
+  console.log(item.data)
 
      const timestamp = item.data.exchangeDate;
 const date = new Date(timestamp);

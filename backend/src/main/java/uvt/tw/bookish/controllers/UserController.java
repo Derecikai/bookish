@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User result = userService.addUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/exchanges/{userID}")

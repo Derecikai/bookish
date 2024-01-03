@@ -25,22 +25,79 @@
 }
 .dash-buttons {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 
 }
-
-.dash-buttons button {
- margin-left: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color:#32746D;
-  color: white;
-  border: none;
+.dash-vezi{
+  position: relative;
+  background-color: bisque;
+  padding: 3px;
+  /* padding-left: 10px; */
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  color: #32746D;
+  transition: all 0.2s ease;
+  width: 130px;
+  
 }
+.dash-vezi:hover{
+  background-color:#32746D;
+  color:bisque;
+}
+.book-dash{
+  color: #32746D;
+  height: 30px;
+  width: 30px;
+  /* background-color: bisque; */
+  position: absolute;
+  left: -30px;
+  top: -1px;
 
-.dash-buttons button:hover {
-  background-color: #45a049;
+}
+.dash-edit{
+  position: relative;
+  background-color: bisque;
+  padding: 3px;
+  /* padding-left: 10px; */
+  border-radius: 5px;
+  color: #32746D;
+  transition: all 0.2s ease;
+  width: 130px;
+}
+.dash-edit:hover{
+  background-color:#1d1772;
+  color:bisque;
+}
+.cube-dash{
+  color: #1d1772;
+  height: 30px;
+  width: 30px;
+  /* background-color: bisque; */
+  position: absolute;
+  left: -30px;
+  top: -1px;
+}
+.dash-delete{
+  position: relative;
+  background-color: bisque;
+  padding: 3px;
+  /* padding-left: 10px; */
+  border-radius: 5px;
+  color: #32746D;
+  width: 130px;
+  transition: all 0.2s ease;
+}
+.dash-delete:hover{
+   background-color:#db0e0e;
+  color:bisque;
+}
+.out-dash{
+  color: #db0e0e;
+  height: 30px;
+  width: 30px;
+  /* background-color: bisque; */
+  position: absolute;
+  left: -30px;
+  top: -1px;
 }
