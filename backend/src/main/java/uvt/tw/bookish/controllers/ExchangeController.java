@@ -49,6 +49,28 @@ public class ExchangeController {
         return ResponseEntity.ok(exchanges);
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Exchange> updateExchange(@PathVariable int id,
+                                                   @RequestBody ExchangeRequest updatedExchange) {
+        Exchange updated = exchangeService.updateExchange(id, updatedExchange);
+
+        if(updated != null) {
+            return ResponseEntity.ok(updated);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteExchange(@RequestParam int id) {
+        boolean deleted = exchangeService.deleteExchange(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("Entry deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entry not found");
+        }
+    }
     @GetMapping("/all")
     public ResponseEntity<List<Exchange>> getAllExchanges() {
         List<Exchange> exchanges = exchangeService.getAllExchanges();

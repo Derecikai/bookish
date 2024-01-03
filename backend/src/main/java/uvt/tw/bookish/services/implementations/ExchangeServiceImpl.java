@@ -68,7 +68,47 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
+    public boolean deleteExchange(int id) {
+        Optional<Exchange> result = exchangeRepository.findById(id);
+
+        if(result.isPresent()) {
+            exchangeRepository.delete(result.get());
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public Exchange updateExchange(int id, ExchangeRequest updatedExchange) {
+        Exchange existingExchange = exchangeRepository.findById(id).orElse(null);
+
+        if(existingExchange != null) {
+            Book book1 = bookRepository.findById(updatedExchange.getBookID1()).orElseThrow();
+            Book book2 = bookRepository.findById(updatedExchange.getBookID2()).orElseThrow();
+            //User owner = userRepository.findById(updatedExchange.getOwnerID()).orElseThrow();
+
+            existingExchange.setBookID1(book1);
+            existingExchange.setBookID2(book2);
+            existingExchange.setCondition(updatedExchange.getCondition());
+            existingExchange.setComment(updatedExchange.getComment());
+
+            return exchangeRepository.save(existingExchange);
+        }
+        else {
+            return null;
+        }
+    }
+
+    @Override
     public Optional<Exchange> getExchangeByID(int id) {
         return exchangeRepository.findById(id);
+    }
+
+    @Override
+    public List<Exchange> getExchangeByOwnerID(int id) {
+        List<Exchange> result = exchangeRepository.findByOwnerID_Id(id);
+        return result;
     }
 }

@@ -1,6 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './Navbar.css'
-import myImage from './Screenshot_67.jpg'
+//import myImage from './Screenshot_67.jpg'
 import { useEffect,useState } from 'react';
 import { useAuth } from '../Contexts/AuthContext';
 

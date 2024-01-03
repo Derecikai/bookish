@@ -17,5 +17,10 @@ public interface ExchangeService {
 
     Optional<Exchange> getExchangeByID(int id);
 
+    public List<Exchange> getExchangeByOwnerID(int id);
     public Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable);
+
+    boolean deleteExchange(int id);
+
+    Exchange updateExchange(int id, ExchangeRequest updatedExchange);
 }
