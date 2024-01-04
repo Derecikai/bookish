@@ -32,12 +32,15 @@ const Personal = () => {
   return isLoggedIn ? (
     <div className='anunturi-pers-container'>
     <div className='anunturi-form-pers-Container'>
+      <div className='profile-select-cont'>
             <div className='profile-pers'>
-             <Link to={"/profile"}>Profile</Link>
+              <div className='personal-profile-pic'></div>
+             <Link className='personal-profile-link' to={`/profile/${persData}`}>Profile</Link>
             </div>
-            <div>
-             <Link to={`/dashboard/${persData}`}>Dashboard</Link>
-             <>{persData}</>
+            <div className='profile-pers'>
+              <div className='personal-dashboard-pic'></div>
+             <Link className='personal-dashboard-link' to={`/dashboard/${persData}`}>Dashboard</Link>
+            </div>
             </div>
     </div>
     </div>

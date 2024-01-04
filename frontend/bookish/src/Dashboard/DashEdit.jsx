@@ -10,8 +10,7 @@ import SearchBar from '../Anunturi/Search';
  const schema = Yup.object().shape({
   bookID1: Yup.number(),
   bookID2: Yup.number(),
-  ownerID: Yup.number(),
-  exchangeDate: Yup.date(),
+  comment: Yup.string(),
   status: Yup.string(),
   condition: Yup.string(),
 });
@@ -32,8 +31,7 @@ const DashEdit = () => {
         setExchangeData({
           bookID1: response.data?.bookID1?.id,
           bookID2: response.data?.bookID2?.id,
-          ownerID: 1,
-          exchangeDate: '2023-12-01',
+          comment: response.data?.comment,
           status: response.data?.status,
           condition: response.data?.condition,
         });
@@ -43,8 +41,7 @@ const DashEdit = () => {
         setValue('bookID2', response.data?.bookID2?.id || '');
         setValue('status', response.data?.status || '');
         setValue('condition', response.data?.condition || '');
-        setValue('ownerID', 1 || '');
-        setValue('exchangeDate', '2023-12-01' || '');
+        setValue('comment', response.data?.comment || '');
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -59,7 +56,7 @@ const onSubmit = async (data) => {
       const updateData = {
         bookID1: data.bookID1,
         bookID2: data.bookID2,
-        ownerID: 1,
+        comment: data.comment,
         exchangeDate: '2023-12-01',
         status: data.status,
         condition: data.condition,
@@ -81,8 +78,8 @@ const onSubmit = async (data) => {
 
  
   return (
-    <div className='anunturi-dash-container'>
-     <div className='anunturi-form-dash-Container'>
+    <div className='anunturi-dashedit-container'>
+     <div className='anunturi-form-dashedit-Container'>
 
       <form className='yo flocmp2' onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="bookID1">BookID1</label>
@@ -93,12 +90,8 @@ const onSubmit = async (data) => {
       <input type="text" id="bookID2" {...register('bookID2')} />
       <p>{errors.author?.message}</p>
 
-      <label htmlFor="ownerID">Owner Id</label>
-      <input type="text" id="ownerID" {...register('ownerID')} />
-      <p>{errors.ownerID?.message}</p>
-
-      <label htmlFor="exchangeDate">ExchangeDate</label>
-      <input type="date" id="exchangeDate" {...register('exchangeDate')} />
+      <label htmlFor="comment">comment</label>
+      <input type="textarea" id="comment" {...register('comment')} />
       <p>{errors.exchangeDate?.message}</p>
 
       <label htmlFor="status">Status</label>

@@ -47,7 +47,7 @@ CREATE TABLE EXCHANGES (
 
 -- Creating BOOKSHELF table
 CREATE TABLE BOOKSHELF (
-                           id INT AUTO_INCREMENT,
+                           id INT AUTO_INCREMENT PRIMARY KEY,
                            book_id INT,
                            owner_id INT,
                            FOREIGN KEY (book_id) REFERENCES BOOKS(id),

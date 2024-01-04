@@ -1,0 +1,113 @@
+.anunturi-profile-container{
+  padding-top: 20px;
+ width: 100%;
+ height: auto;
+
+background-color: #32746D;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+padding-bottom: 5px;
+}
+.anunturi-form-profile-Container{
+   border-radius: 10px;
+   padding-bottom: 20px;
+   width: 80%;
+   background-color: #2A2E45;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+}
+.profile-data-1{
+   
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.profile-picture{
+   
+   background-position: center;
+   background-size: cover;
+   width: 460px;
+   height: 400px;
+   margin-top: 20px;
+   margin-left: 40px;
+   border-radius: 50%;
+}
+.profile-data-writing{
+   width: 50%;
+   height: 100%;
+   margin-top: 25px;
+   margin-right: 20px;
+   padding: 40px;
+ border: 1px solid #32746D;
+ border-radius: 7px;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: aliceblue;
+}
+.profile-buttons {
+   margin-top: 36px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   
+}
+.profile-buttons a{
+   color: aliceblue;
+   margin-left: 10px;
+}
+.profile-swaps{
+   color:aliceblue;
+   font-size: 30px;
+   font-family: 'Heebo', sans-serif;
+   padding-bottom: 0px;
+   margin-bottom: 0px;
+}
+.wishlist-profile {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #c08937; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for better appearance */
+  border-radius: 5px; /* Rounded corners */
+  margin-right: 10px; /* Margin between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+
+  /* Hover effect */
+  &:hover {
+    background-color: #c08937af; /* Darker green on hover */
+  }
+
+  h3 {
+    margin: 0; /* Remove default margin for h3 */
+  }
+}
+
+/* Styling for the Bookshelf button */
+.bookshelf-profile {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #3498db; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for better appearance */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+
+  /* Hover effect */
+  &:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+
+  h3 {
+    margin: 0; /* Remove default margin for h3 */
+  }
+}
