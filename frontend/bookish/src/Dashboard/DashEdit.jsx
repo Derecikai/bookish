@@ -84,7 +84,7 @@ const onSubmit = async (data) => {
     <div className='anunturi-dash-container'>
      <div className='anunturi-form-dash-Container'>
 
-      <form className='yo' onSubmit={handleSubmit(onSubmit)}>
+      <form className='yo flocmp2' onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="bookID1">BookID1</label>
       <input type="text" id="bookID1" {...register('bookID1')} />
       <p>{errors.bookID1?.message}</p>
