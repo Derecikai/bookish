@@ -92,6 +92,7 @@ public class ExchangeServiceImpl implements ExchangeService {
 
             existingExchange.setBookID1(book1);
             existingExchange.setBookID2(book2);
+            existingExchange.setStatus(updatedExchange.getStatus());
             existingExchange.setCondition(updatedExchange.getCondition());
             existingExchange.setComment(updatedExchange.getComment());
 

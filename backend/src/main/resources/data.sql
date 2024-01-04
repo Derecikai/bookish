@@ -5,7 +5,7 @@ VALUES (
            '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
            'user@example.com',
            'John Doe',
-           'profile.jpg',
+           'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png',
            'This is a short bio about the user.',
            'Timisoara',
            'default',
@@ -18,7 +18,7 @@ VALUES (
         '$2a$10$8mNAauzYAJbatkHAlmgfzOb.0biD5EDEqGQSYjRQJE5nUsLHzAxuq',
         'jogoat@gmail.com',
         'The Strongest Curse',
-        'profile.jpg',
+        'https://images.gamebanana.com/img/ico/sprays/65511af0a3500.png',
         'As Jogoat, the king of curses',
         'Arad',
         'defaul',
