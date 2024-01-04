@@ -39,7 +39,10 @@ a {
  display: flex;
  flex-direction: column;
  justify-content: center;
- align-items: start;
+ align-items: center;
+ min-width: 310px;
+
+ 
  flex:1;
  color: #2A2E45;
  font-family: 'Libre Caslon Text', serif;

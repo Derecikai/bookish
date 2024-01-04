@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import './Dashboard.css'
 import DashAnunt from './DashAnunt'
 import backgroundImage from './3d-33q6a18khxgta4ll.webp';
+import axios from 'axios';
+import { useAuth } from '../Contexts/AuthContext';
+import PleaseLogin from "../PleaseLogIn";
+import { useParams } from 'react-router-dom';
+import Anunt from '../Anunturi/Anunt';
 
 const Dashboard = () => {
+  const {id} = useParams();
+  const { logout, isLoggedIn} = useAuth();
+  const [dashData, setDashData] = useState(null);
  const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
@@ -12,16 +20,45 @@ const Dashboard = () => {
   };
 
 
-  return (
+  useEffect(()=>{
+
+    const dashData = async () =>{
+      try{
+ const response = await axios.get(`http://localhost:8080/users/exchanges/${id}`);
+ console.log(response.status)
+ console.log(response.data)
+    }
+catch(err){
+  setDashData(err.response.data)
+   console.log("There is an error",err.response.data);
+}
+    };
+    dashData();
+
+  },[id])
+
+
+
+  return isLoggedIn ? (
+        
     <div className='anunturi-dash-container'>
       <div className='anunturi-form-dash-Container'>
        <div className='dash-hero slide-in'>
            <div className='image-dash'></div><div className='text-img-dash'>Anunturile tale</div>
        </div>
-        <DashAnunt />
+        {dashData && 
+            dashData.map( item => (
+               
+              <DashAnunt data={item}/>
+             
+            ) )
+          }
       </div>
       </div>
-  )
+      ) : (
+    // Redirect to login if not authenticated
+     <PleaseLogin />
+  );
 }
 
 export default Dashboard
