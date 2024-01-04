@@ -32,7 +32,7 @@
 }
 .dash-vezi{
   position: relative;
-  background-color: bisque;
+  background-color: #E9E3E6;
   padding: 3px;
   /* padding-left: 10px; */
   border-radius: 5px;
@@ -43,7 +43,7 @@
 }
 .dash-vezi:hover{
   background-color:#32746D;
-  color:bisque;
+  color:#E9E3E6;
 }
 .book-dash{
   color: #32746D;
@@ -57,7 +57,7 @@
 }
 .dash-edit{
   position: relative;
-  background-color: bisque;
+  background-color: #E9E3E6;
   padding: 3px;
   /* padding-left: 10px; */
   border-radius: 5px;
@@ -67,7 +67,7 @@
 }
 .dash-edit:hover{
   background-color:#1d1772;
-  color:bisque;
+  color:#E9E3E6;
 }
 .cube-dash{
   color: #1d1772;
@@ -80,7 +80,7 @@
 }
 .dash-delete{
   position: relative;
-  background-color: bisque;
+  background-color: #E9E3E6;
   padding: 3px;
   /* padding-left: 10px; */
   border-radius: 5px;
@@ -90,7 +90,7 @@
 }
 .dash-delete:hover{
    background-color:#db0e0e;
-  color:bisque;
+  color:#E9E3E6;
 }
 .out-dash{
   color: #db0e0e;

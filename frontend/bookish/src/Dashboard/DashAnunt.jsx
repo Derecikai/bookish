@@ -67,7 +67,7 @@ const formattedDate = date.toLocaleDateString();
      
      <div className='dash-buttons'>
      <Link className='dash-vezi' to={`/anunturi/${item.data.id}`}>Vezi Anunt < HiOutlineBookOpen className='book-dash' /> </Link>
-     <Link className='dash-edit' >Editeaza anunt <HiCubeTransparent className='cube-dash' /> </Link>
+     <Link to={`/dashedit/${item.data.id}`}className='dash-edit' >Editeaza anunt <HiCubeTransparent className='cube-dash' /> </Link>
      <Link onClick={handleDelete} className='dash-delete'>Sterge anunt <HiOutlineBackspace className='out-dash'/> </Link>
      </div>
     </a>

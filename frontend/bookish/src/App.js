@@ -9,6 +9,7 @@ import DetaliAnunt from './DetaliiAnunt/DetaliAnunt';
 import Adauga from './Adauga/Adauga';
 import Dashboard from './Dashboard/Dashboard';
 import Personal from './Personal/Personal';
+import DashEdit from './Dashboard/DashEdit';
 
 
 //Aici avem rutele si componentele specifice pt ele
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/adauga" element={<Adauga />} />
         <Route path="/personal" element={<Personal />} />
         <Route path="/dashboard/:id" element={<Dashboard />} />
+        <Route path="/dashedit/:id" element={<DashEdit />} />
       </Routes>
     </Router>
   );
