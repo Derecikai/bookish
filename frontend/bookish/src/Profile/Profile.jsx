@@ -67,8 +67,8 @@ return (
        <p>Location: {profileData.location}</p>
        <div className='profile-buttons'>
        <Link className='wishlist-profile'><h3>Rating</h3></Link>
-       <Link className='wishlist-profile'><h3>WishList</h3></Link>
-       <Link className='bookshelf-profile'><h3>Bookshelf</h3></Link>
+       <Link to={`/profile/wishlist/${id}`} className='wishlist-profile'><h3>WishList</h3></Link>
+       <Link to={`/profile/bookshelf/${id}`} className='bookshelf-profile'><h3>Bookshelf</h3></Link>
        </div>
        </div>
        

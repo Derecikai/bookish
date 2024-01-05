@@ -11,6 +11,8 @@ import Dashboard from './Dashboard/Dashboard';
 import Personal from './Personal/Personal';
 import DashEdit from './Dashboard/DashEdit';
 import Profile from './Profile/Profile';
+import Bookshelf from './Bookshelf/Bookshelf';
+import WishList from './WishList/WishList';
 
 
 //Aici avem rutele si componentele specifice pt ele
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="/dashedit/:id" element={<DashEdit />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/profile/bookshelf/:id" element={<Bookshelf />} />
+        <Route path="/profile/wishlist/:id" element={<WishList />} />
       </Routes>
     </Router>
   );
