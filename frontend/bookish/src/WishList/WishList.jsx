@@ -56,9 +56,9 @@ getdata();
 
 
 
-  if(!data){
-   return ( <div>Data loading cuh</div>)
-  }
+  // if(!data){
+  //  return ( <div>Data loading cuh</div>)
+  // }
 
 
   return (

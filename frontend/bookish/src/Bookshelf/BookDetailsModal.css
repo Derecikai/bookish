@@ -27,5 +27,8 @@
 .modal-desc{
  max-width: 290px;
 }
+.modal-title{
+  max-width: 320px;
+}
 
 /* Add other styles for your modal content as needed */
