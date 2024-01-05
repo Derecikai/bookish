@@ -10,10 +10,13 @@ import uvt.tw.bookish.controllers.requests.ExchangeRequest;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Exchange;
 import uvt.tw.bookish.entities.User;
+import uvt.tw.bookish.entities.Wishlist;
 import uvt.tw.bookish.repositories.BookRepository;
 import uvt.tw.bookish.repositories.ExchangeRepository;
 import uvt.tw.bookish.repositories.UserRepository;
+import uvt.tw.bookish.repositories.WishlistRepository;
 import uvt.tw.bookish.services.ExchangeService;
+import uvt.tw.bookish.services.NotificationService;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +28,12 @@ public class ExchangeServiceImpl implements ExchangeService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private NotificationService notificationService;
+
+    @Autowired
+    private WishlistRepository wishlistRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -46,6 +55,13 @@ public class ExchangeServiceImpl implements ExchangeService {
                             .condition(exchange.getCondition())
                             .comment(exchange.getComment())
                             .build();
+
+        List<Wishlist> matchingUsersIds = wishlistRepository.findByBookID_Id(exchange.getBookID1());
+
+        for(Wishlist userID : matchingUsersIds) {
+            String message = "A new book is available: " + book1.getTitle();
+            notificationService.createNotification(userID.getOwnerID().getId(), exchange.getBookID1(), message);
+        }
 
         System.out.println(result);
         return exchangeRepository.save(result);

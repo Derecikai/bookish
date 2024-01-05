@@ -29,7 +29,7 @@ const Bookshelf = () => {
    }
 
 getdata();
-  },[data])
+  },[])
   
  const openModal = (book) => {
     setSelectedBook(book);

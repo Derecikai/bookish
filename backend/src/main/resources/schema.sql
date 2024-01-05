@@ -64,3 +64,13 @@ CREATE TABLE WISHLIST (
 );
 
 CREATE INDEX idx_book_owner ON WISHLIST (book_id, owner_id);
+
+-- Creating NOTIFICATIONS table
+CREATE TABLE NOTIFICATIONS (
+                               id INT AUTO_INCREMENT PRIMARY KEY,
+                               user_id INT,
+                               book_id INT,
+                               message VARCHAR(255),
+                               is_read BOOLEAN,
+                               date DATE DEFAULT CURRENT_DATE
+);
