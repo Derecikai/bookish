@@ -62,3 +62,5 @@ CREATE TABLE WISHLIST (
                            FOREIGN KEY (book_id) REFERENCES BOOKS(id),
                            FOREIGN KEY (owner_id) REFERENCES _USERS(id)
 );
+
+CREATE INDEX idx_book_owner ON WISHLIST (book_id, owner_id);

@@ -13,12 +13,12 @@ public interface ProfileService {
 
     Bookshelf addBookshelfEntry(BookshelfRequest entry);
 
-    boolean delete(int id);
+    boolean deleteBookshelfEntry(int bookID, int ownerID);
 
     List<Book> getUserWishlist(int id);
 
     Wishlist addWishlistEntry(BookshelfRequest entry);
 
-    boolean deleteWishlistEntry(int id);
+    boolean deleteWishlistEntry(int bookID, int ownerID);
     UserInfoDAO getUserInfo(int id);
 }

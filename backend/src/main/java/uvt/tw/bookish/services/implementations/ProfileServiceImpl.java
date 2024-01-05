@@ -61,8 +61,8 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public boolean delete(int id) {
-        Optional<Bookshelf> result = bookshelfRepository.findById(id);
+    public boolean deleteBookshelfEntry(int bookID, int ownerID) {
+        Optional<Bookshelf> result = bookshelfRepository.findBookshelfByBookID_IdAndOwnerID_Id(bookID, ownerID);
 
         if(result.isPresent()) {
             bookshelfRepository.delete(result.get());
@@ -95,8 +95,8 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public boolean deleteWishlistEntry(int id) {
-        Optional<Wishlist> result = wishlistRepository.findById(id);
+    public boolean deleteWishlistEntry(int bookID, int ownerID) {
+        Optional<Wishlist> result = wishlistRepository.findWishlistByBookID_IdAndOwnerID_Id(bookID, ownerID);
 
         if(result.isPresent()) {
             wishlistRepository.delete(result.get());
