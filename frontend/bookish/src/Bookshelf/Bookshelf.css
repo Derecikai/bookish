@@ -92,7 +92,7 @@ padding-bottom: 15px;
 .book {
  cursor: pointer;
   border: 1px solid #ddd;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
   /* background-color: #55280e;  */
   /* White background color for each book */
