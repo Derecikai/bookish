@@ -44,8 +44,9 @@ public class ProfileController {
     }
 
     @DeleteMapping("/bookshelf/delete")
-    public ResponseEntity<String> deleteBookshelfEntry(@RequestParam int id) {
-        boolean deleted = profileService.delete(id);
+    public ResponseEntity<String> deleteBookshelfEntry(@RequestParam int bookID,
+                                                       @RequestParam int ownerID) {
+        boolean deleted = profileService.deleteBookshelfEntry(bookID, ownerID);
 
         if (deleted) {
             return ResponseEntity.ok("Entry deleted successfully");
@@ -72,8 +73,9 @@ public class ProfileController {
     }
 
     @DeleteMapping("/wishlist/delete")
-    public ResponseEntity<String> deleteWishlistEntry(@RequestParam int id) {
-        boolean deleted = profileService.deleteWishlistEntry(id);
+    public ResponseEntity<String> deleteWishlistEntry(@RequestParam int bookID,
+                                                      @RequestParam int ownerID) {
+        boolean deleted = profileService.deleteWishlistEntry(bookID, ownerID);
 
         if (deleted) {
             return ResponseEntity.ok("Entry deleted successfully");

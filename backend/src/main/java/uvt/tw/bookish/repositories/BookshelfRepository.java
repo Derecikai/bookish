@@ -8,16 +8,19 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Bookshelf;
+import uvt.tw.bookish.entities.Wishlist;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookshelfRepository extends JpaRepository<Bookshelf, Integer> {
     List<Bookshelf> findByOwnerID_Id(int ownerID);
 
-
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO Bookshelf (book_id, owner_id, id) VALUES (?1, ?2, default)", nativeQuery = true)
     void add(int bookID, int ownerID);
+
+    Optional<Bookshelf> findBookshelfByBookID_IdAndOwnerID_Id(int bookID, int ownerID);
 }
