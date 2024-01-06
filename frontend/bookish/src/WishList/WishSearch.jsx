@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./Search.css"
 import { set } from 'react-hook-form';
 //aici avem searchbar componenta si luam un filter cu un query si dam query in DB cu acel query si afisam rezultatele la ce am gasit(query-urile pot fi id title isbn sau author)
 const SearchBar = ({ onSelectBook }) => {
@@ -60,11 +59,11 @@ const SearchBar = ({ onSelectBook }) => {
         {results.map((result) => (
           <li key={result.id}>
             {/* Display book information here */}
-            <p>ID: {result.id}</p>
-            <img className='image-result-search' src={result.thumb} alt="" />
+            {/* <p>ID: {result.id}</p>*/}
+            <img className='image-result-search' src={result.thumb} alt="" /> 
             <p>Title: {result.title}</p>
-            <p>ISBN: {result.isbn}</p>
-            <p>Author: {result.author}</p>
+            {/* /* <p>ISBN: {result.isbn}</p>
+            <p>Author: {result.author}</p>  */}
             <button style={{ backgroundColor:  result.id === carte?.id ? currentColor : 'red' }} type="button" onClick={() => handleSelectBook(result)}>
               Select Book
             </button>

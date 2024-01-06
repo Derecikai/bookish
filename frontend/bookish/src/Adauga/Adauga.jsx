@@ -6,6 +6,7 @@ import Form from './Form';
 import axios from 'axios';
 // import jwt from 'jsonwebtoken';
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 //aici se face practic adaugare exchange urilor, se pune din DB cartea care o ai si cartea pe care vrei si dupa mai adaugi niste info 2 campuri, si dupa dai submit si ai adaugat exchange
 
@@ -16,8 +17,11 @@ const Adauga = () => {
   const [selectedBookWant, setSelectedBookWant] = useState(null);
   const [status, setStatus] = useState('');
   const [condition, setCondition] = useState('');
+  const [comment ,setComment] = useState('');
 const [auth, setAuth] = useState(false);
 const[userId, setUserId] = useState(false);
+const navigate = useNavigate();
+ 
   useEffect(() => {
 const token = localStorage.getItem('jwtToken');
 
@@ -54,6 +58,7 @@ const token = localStorage.getItem('jwtToken');
         exchangeDate: new Date().toISOString().split('T')[0], // Format as "YYYY-MM-DD"
        status: status,
        condition: condition,
+       comment: comment,
       };
      console.log(exchangeData)
       try {
@@ -65,6 +70,8 @@ const token = localStorage.getItem('jwtToken');
         });
 
         console.log('Exchange submitted successfully!', response.data);
+        navigate('/anunturi')
+
         // You may want to reset your selected books or do other actions upon success
       } catch (error) {
         console.error('Error:', error);
@@ -96,6 +103,13 @@ const token = localStorage.getItem('jwtToken');
         id="condition"
         value={condition}
         onChange={(e) => setCondition(e.target.value)}
+      />
+      <label htmlFor="condition">Comment:</label>
+      <input
+        type="text"
+        id="comment"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
       />
        <h1>If we don't have it, Add it</h1>
        <Form />
