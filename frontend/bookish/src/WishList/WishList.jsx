@@ -29,7 +29,7 @@ const WishList = () => {
    }
 
 getdata();
-  },[data])
+  },[])
   
  const openModal = (book) => {
     setSelectedBook(book);
