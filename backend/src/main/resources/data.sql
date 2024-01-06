@@ -97,7 +97,7 @@ VALUES (
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment)
 VALUES (
         6,
-        7,
+        8,
         1,
         '2023-12-5',
         'Pending',
@@ -109,7 +109,7 @@ INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, co
     (4, 5, 2, '2023-12-02', 'Pending', 'Very Good', 'Nu bate nu troncane');
 
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
-    (7, 8, 1, '2023-12-03', 'Pending', 'Excellent', 'Nu bate nu troncane');
+    (7, 9, 1, '2023-12-03', 'Pending', 'Excellent', 'Nu bate nu troncane');
 
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition, comment) VALUES
     (10, 11, 2, '2023-12-04', 'Approved', 'Good', 'Nu bate nu troncane');
@@ -122,17 +122,29 @@ INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, co
 
 --Inserting sample bookshelf entries
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
-    (1, 1);
-
-INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
     (2, 1);
 
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
-    (3, 2);
+    (6, 1);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (7, 1);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (13, 1);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (4, 2);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (10, 2);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (16, 2);
 
 --Inserting sample wishlist entries
 INSERT INTO WISHLIST (book_id, owner_id) VALUES
-    (7, 1);
+    (1, 1);
 
 INSERT INTO WISHLIST (book_id, owner_id) VALUES
     (8, 1);
