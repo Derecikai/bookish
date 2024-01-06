@@ -2,6 +2,7 @@
 import React from 'react';
 import './BookDetailsModal.css';
 
+
 const BookDetailsModal = ({ book, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>

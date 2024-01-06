@@ -91,6 +91,7 @@ return isLoggedIn ? (
           </div>
           <h1 className='status'>Status: {info?.status}</h1>
           <button className='action-but'>Make exchange</button>
+          <h4>User Comment: {info?.comment}</h4>
         </div>
 
       </div>

@@ -3,6 +3,7 @@ import './Bookshelf.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import BookDetailsModal from './BookDetailsModal';
+import WishSearch from "../WishList/WishSearch";
 
 const Bookshelf = () => {
 
@@ -10,6 +11,7 @@ const Bookshelf = () => {
   const [data,setData] = useState(null);
   const [selectedBook,setSelectedBook] = useState(null);
   const [newBookId, setNewBookId] = useState('');
+    const [carte ,setCarte] = useState('');
 
 
   useEffect(() =>{
@@ -39,10 +41,15 @@ getdata();
     setSelectedBook(null);
   };
 
+  const handleCarte = (param) =>{
+   setCarte(param)
+   console.log(carte.id)
+  }
+
   const addBook = async () => {
  try {
       const response = await axios.post('http://localhost:8080/profiles/bookshelf/add', {
-        bookID: newBookId,
+        bookID: carte.id,
         userID: id,
       });
 
@@ -64,14 +71,10 @@ getdata();
   return (
     <div className='anunturi-bookshelf-container'>
      <div className='anunturi-form-bookshelf-Container'>
-
-   <div><input
-            type="text"
-            placeholder='Type book id to add'
-            value={newBookId}
-            onChange={(e) => setNewBookId(e.target.value)}
-          /> 
-          <button onClick={addBook}>Add book to bookshelf</button></div>
+  <div>
+   <WishSearch onSelectBook={handleCarte}/>
+          <button  onClick={addBook}> add</button>
+          </div>
 <div className="bookshelf">
       {data && data.map((book) => (
         <div key={book.id} className="book" onClick={() => openModal(book)}>

@@ -94,3 +94,31 @@ padding-bottom: 5px;
   border: 1px solid #E9E3E6;
   border-radius: 10px;
 }
+.input-anunt {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #32746D;
+  border-radius: 5px;
+  background-color: #E9E3E6;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"] {
+  font-size: 16px; 
+}
+
+input[type="text"]:focus {
+  border-color: #32746D;
+  background-color: #00b9473d;
+  outline: none;
+  color: #E9E3E6; 
+}
+
+::placeholder {
+  color: #32746D;
+}
+::placeholder:focus{
+  color: #E9E3E6; 
+}
