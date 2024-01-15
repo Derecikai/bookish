@@ -34,7 +34,7 @@
 .anunturi-container{
   padding-top: 20px;
  width: 100%;
-height: auto;
+min-height: 300px;
 
 background-color: #32746D;
 display: flex;
@@ -113,7 +113,7 @@ input[type="text"]:focus {
   border-color: #32746D;
   background-color: #00b9473d;
   outline: none;
-  color: #E9E3E6; 
+  color: #eb0d7c; 
 }
 
 ::placeholder {

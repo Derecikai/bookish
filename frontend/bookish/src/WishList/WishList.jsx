@@ -68,6 +68,7 @@ getdata();
       // Assuming the response contains updated bookshelf data
       // setData(response.data);
       setNewBookId(''); // Clear the input field after successful addition
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
