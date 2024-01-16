@@ -41,8 +41,9 @@ const Navbar = () => {
       {/* aici avem linkurile */}
       <ul className='nav_links'>
         <li>
-          <Link to={"#"}>Noutati</Link>
+          <Link to={"/Home"}>Home</Link>
           </li>
+          
         <li>
           <Link to={"/anunturi"}>Anunturi</Link>
           </li>
