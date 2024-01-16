@@ -35,6 +35,7 @@ const App = () => {
         <Route path="/profile/bookshelf/:id" element={<Bookshelf />} />
         <Route path="/profile/wishlist/:id" element={<WishList />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );
