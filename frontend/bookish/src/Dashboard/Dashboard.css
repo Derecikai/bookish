@@ -56,9 +56,9 @@ background-size: cover;
 background-image: url('https://wallpapers.com/images/hd/wide-victoria-harbour-vhykfhx6rpkkwby8.webp');
 transition: 0.7s;
 }
-.image-dash:hover{
+/* .image-dash:hover{
  transform: scale(1.2);
-}
+} */
 .text-img-dash{
  background-color: #32746dc5;
  padding: 6px;
