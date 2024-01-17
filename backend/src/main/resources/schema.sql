@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 -- Creating USERS table
 CREATE TABLE _USERS (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -73,4 +75,17 @@ CREATE TABLE NOTIFICATIONS (
                                message VARCHAR(255),
                                is_read BOOLEAN,
                                date DATE DEFAULT CURRENT_DATE
+);
+
+--Creating MESSAGES table
+CREATE TABLE MESSAGES (
+                          id INT PRIMARY KEY,
+                          sender_id INT,
+                          receiver_id INT,
+                          exchange_id INT,
+                          content VARCHAR(255),
+                          date DATE,
+                          FOREIGN KEY (sender_id) REFERENCES _USERS(id),
+                          FOREIGN KEY (receiver_id) REFERENCES _USERS(id),
+                          FOREIGN KEY (exchange_id) REFERENCES EXCHANGES(id)
 );
