@@ -128,7 +128,7 @@ const Anunturi = () => {
           
         }}/>
         <IoIosArrowDropright className='buton' onClick={() =>{
-          if(count < 2 )
+          if(count < 5 )
           (setCount(count+1))
          
           
