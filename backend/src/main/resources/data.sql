@@ -1,4 +1,3 @@
-
 --Inserting sample user
 INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
 VALUES (
