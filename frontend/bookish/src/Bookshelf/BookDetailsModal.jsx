@@ -1,9 +1,27 @@
 // BookDetailsModal.js
 import React from 'react';
 import './BookDetailsModal.css';
+import axios from 'axios';
 
 
 const BookDetailsModal = ({ book, onClose }) => {
+
+
+  const getRec = async () =>{
+    try{
+      //pune api-ul tau aici cu book.title sau book.id sau dupa ce iti trebe sa cauti
+      //foloseste `` nu "" sau '' ca sa poti sa scri gen get${book.title} in endpoint
+      //dupa vezi ce iti scrie in c ${book.title}
+      const response = await axios.get(`localhost:8080/ai/generate?message=${book.title}`)
+      console.log(response)
+    }catch(err)
+    {
+      console.log(err);
+    }
+  }
+
+
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -15,6 +33,7 @@ const BookDetailsModal = ({ book, onClose }) => {
 
         {/* Add more book details as needed */}
         <button onClick={onClose}>Close</button>
+        <button onClick={getRec}>Get recomandation</button>
       </div>
     </div>
   );

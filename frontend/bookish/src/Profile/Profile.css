@@ -115,3 +115,23 @@ border: 3px solid whitesmoke;
     margin: 0; /* Remove default margin for h3 */
   }
 }
+.wishlist-profile-rating{
+   display: inline-block;
+   min-width: 85px;
+  text-decoration: none;
+  background-color: #37c070; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for better appearance */
+  border-radius: 5px; /* Rounded corners */
+  margin-right: 10px; /* Margin between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+
+  /* Hover effect */
+  &:hover {
+    background-color: #31a561; /* Darker green on hover */
+  }
+
+  h3 {
+    margin: 0; /* Remove default margin for h3 */
+  }
+}
