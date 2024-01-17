@@ -7,59 +7,70 @@ import axios from 'axios';
 import SearchBar from './Search';
 //aici avem anunturi cu pagination porning de la pagina 1 si primim data de pe  prima pagina, unde lle ducem ca prop pt anunt ca sa randeze componenta
 const Anunturi = () => {
-   
+
   const navigate = useNavigate();
   const [info, setInfo] = useState(null);
   const [count, setCount] = useState(1);
   const [auth, setAuth] = useState(false);
 
 
-  useEffect ( () =>{
+    const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useState({ bookTitle: '', genre: '', location: '' });
+  const [api, setApi] = useState(1);
+  
+
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        let apiUrl;
+
+        // Check if at least one of the search parameters is provided
+        if (Object.values(searchParams).some(param => param !== '')) {
+          const { bookTitle, genre, location } = searchParams;
+          const size = 5;
+          const adjustedPage = currentPage > 1 ? currentPage - 1 : 0;
+          
+          apiUrl = `http://localhost:8080/exchanges/search?${bookTitle ? `bookTitle=${bookTitle}&` : ''}${genre ? `genre=${genre}&` : ''}${location ? `location=${location}&` : ''}page=${0}&size=${size}`;
+        } else {
+        
+          apiUrl = `http://localhost:8080/exchanges/get?page=${count}`;
+        }
+
+        const response = await axios.get(apiUrl);
+        // const responseData = response.data;
+        const responseData = response.data.content || response.data;
+        console.log(response.data)
+
+        setData(responseData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
 
 
-    const anuntData = async (pageNr) =>{
-      try{
-
-      const response = await axios.get('http://localhost:8080/exchanges/get',{
-    params:{
-      page:pageNr,
-    }
-  });
-      // console.log("This is",response.data[2].id)
-      console.log(response)
-      setInfo(response.data);
-    }
-catch(err){
-   console.log("There is an error",err);
-}
+     const flo = localStorage.getItem('jwtToken');
+  if (flo) {
+    setAuth(true);
+  }
 
 
-    }
+  }, [currentPage, searchParams,count]); 
 
-     const searchPagination = (pageNr) => {
-
-  return axios.get('http://localhost:8080/exchanges/get',{
-    params:{
-      page:pageNr,
-    }
-  })
-}
-
-
-
-
-
-    const flo = localStorage.getItem('jwtToken');
-
-    if(flo){
-      setAuth(true);
-    }
-
-    anuntData(count);
-
-  },[count])
-
-
+ const handleInputChange = (event) => {
+  const { name, value } = event.target;
+  setSearchParams((prevSearchParams) => ({
+    ...prevSearchParams,
+    [name]: value,
+  }));
+};
 
   
 
@@ -67,25 +78,84 @@ catch(err){
    return auth ? (
     <div className='anunturi-container'>
       <div className='anunturi-form-Container'>
-        <div className='hero slide-in'>Search and Filter Coming Soon
+        <div className='hero slide-in'>
+          
+          <div>
+      <input
+         className='input-anunt'
+         type="text"
+         placeholder="Search by book title"
+         value={searchParams.bookTitle}
+         onChange={handleInputChange}
+         name="bookTitle"
+/>
+      <input className='input-anunt'
+        type="text"
+        placeholder="Location"
+        value={searchParams.location}
+        onChange={handleInputChange}
+        name="location"
+      />
+      <input className='input-anunt'
+        type="text"
+        placeholder="Genre"
+        value={searchParams.genre}
+        onChange={handleInputChange}
+        name="genre"
+      />
+    
+      <ul>
+        
+        {/* {searchResults.map((result) => (
+          <li key={result.id}>{result.bookTitle} - {result.location}</li>
+        ))} */}
+      </ul>
+    </div>
+          
+          
+          
+          
+          
+          
+      
         <div className='buttons'>
         <button className='buton' onClick={() =>{
           if(count > 1 )
           (setCount(count-1))
+         
+          
         }}>pre page</button>
         <button className='buton' onClick={() =>{
-          if(count < 2)
+          if(count < 2 )
           (setCount(count+1))
+         
+          
         }}>next page</button>
         </div>
         </div>
 
-        {info && 
-            info.map( item => (
+       
+
+{data && 
+            data.map( item => (
             
               <Anunt data={item}/>
              
             ) )}
+
+
+            {/* {searchResults && searchResults.length > 0 ? (
+       
+        searchResults.map(item => (
+          <Anunt data={item} key={item.id} />
+        ))
+      ) : (
+    
+        info && info.map(item => (
+          <Anunt data={item} key={item.id} />
+        ))
+      )} */}
+           
       </div>
     </div>
   ) : (

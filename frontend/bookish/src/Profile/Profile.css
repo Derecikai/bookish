@@ -29,7 +29,7 @@ padding-bottom: 5px;
    align-items: center;
 }
 .profile-picture{
-   
+   border: 3px solid #32746D;
    background-position: center;
    background-size: cover;
    width: 400px;
@@ -37,6 +37,10 @@ padding-bottom: 5px;
    margin-top: 25px;
    margin-left: 60px;
    border-radius: 50%;
+   transition: all 0.3s ease; 
+}
+.profile-picture:hover{
+border: 3px solid whitesmoke;
 }
 .profile-data-writing{
    width: 50%;
