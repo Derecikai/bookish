@@ -1,0 +1,33 @@
+.user-chat-container{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ margin-top: 15px;
+ background-color: #32746d69;
+ min-width: 290px;
+ height: 50px;
+ border-radius: 14px;
+ cursor: pointer;
+}
+.user-chat-container:hover{
+ background-color: #32746dbe;
+}
+.user-chat-container.clicked{
+ background-color: #32746d;
+}
+
+
+.user-chat-pp{
+ width: 46px;
+ height: 40px;
+ border-radius: 50%;
+}
+.name-text{
+ min-width: 190px;
+ max-width: 190px;
+ margin-right: 5px;
+}
+.chat-prof-name{
+ margin: 0px;
+ color: white;
+}

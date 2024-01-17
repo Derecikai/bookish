@@ -1,0 +1,89 @@
+.anunturi-chat-container{
+  padding-top: 20px;
+ width: 100%;
+min-height: 700px;
+
+background-color: #32746D;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+overflow: hidden;
+padding-bottom: 5px;
+}
+.anunturi-form-chat-Container{
+   
+   padding-bottom: 20px;
+   width: 80%;
+   background-color: #4545467a;
+   min-height: 700px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.chat-container-1{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 100px;
+  /* background-color: black; */
+  /* border: 1px solid white; */
+  min-height: 700px;
+  margin-top: 10px;
+  /* padding-left: 10px; */
+  
+}
+.users-chat{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 320px;
+  min-height: 690px;
+  background-color: black;
+  margin-top: 10px;
+  
+}
+.chat-container-2{
+  flex: 2.5;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  min-height: 690px;
+  margin-top: 20px;
+  border: 1px solid white;
+}
+.message {
+  max-width: 300px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.sent-message {
+  min-width: 100px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #32746D; /* Your sent message background color */
+  color: white;
+  align-self: flex-end;
+}
+
+.received-message {
+  margin-left:10px;
+  background-color: #ffffff; /* Your received message background color */
+  color: #454546; /* Your received message text color */
+  align-self: flex-start;
+}
+.message-input {
+  
+  width: 100%;
+  margin-top: 538px;
+  padding: 10px;
+  border: 1px solid #ffffff; /* Match the color of your received messages */
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff; /* Match the color of your sent messages */
+  background-color: #32746D; /* Match the color of your sent messages */
+}

@@ -11,6 +11,7 @@
  top: 0px;
  transition: background-color 0.4s ease-in, height 0.2s ease-in,border-radius 0.4s ease-in ;
  border-bottom: 1px solid #E9E3E6;
+ 
 }
 .nav_container.scrolled {
   backdrop-filter: blur(20px);
@@ -52,7 +53,7 @@
 
 }
 .nav_links li{
- margin-left: 15px;
+ margin-left: 35px;
 font-family:  'Libre Caslon Text', serif;
  font-size: 26px;
 }
@@ -102,8 +103,8 @@ font-family: 'Sorts Mill Goudy', serif;
 }
 .sign-up:hover{
  transform: rotate(3deg);
- background-color: #94778B;
- color: #e9e3e6d5;
+ background-color: #8AE1FC;
+ color: #040F16;
 }
 .nav_logo{
  color: rgb(224, 166, 59);

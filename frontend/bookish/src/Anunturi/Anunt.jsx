@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { HiUser } from "react-icons/hi";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
+import { FcKey } from "react-icons/fc";
+import { BsCalendar2Date } from "react-icons/bs";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 
 // Aici doar primim de la Anunturi niste date prin propuri si le randam cu niste css
 
 const Anunt = (item) => {
-  console.log(item.data.id);
-  console.log(item.data)
+  // console.log(item.data.id);
+  // console.log(item.data)
 
      const timestamp = item.data.exchangeDate;
 const date = new Date(timestamp);
@@ -40,7 +43,10 @@ const formattedDate = date.toLocaleDateString();
         <HiUser className='user-logo' />
         {item.data.ownerID?.username}
         </div>
-          <h5>Conditie: {item.data.condition}</h5>
+          <h5>
+            <FcKey className='book-condition-logo' />
+            Conditie: {item.data.condition}</h5>
+            <FaRegCalendarAlt className='book-date-logo'/>
           {formattedDate}
        
       </div>

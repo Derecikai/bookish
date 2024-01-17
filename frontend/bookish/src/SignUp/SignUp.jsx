@@ -85,7 +85,7 @@ const onSubmit = async (formData) => {
      login(response.data.token)
 
       // Redirect the user or perform any other actions
-      navigate('/anunturi'); // Change '/dashboard' to your desired route
+      navigate('/home'); // Change '/dashboard' to your desired route
     } else {
       console.error('Login failed. Unexpected response:', response);
       // Handle unsuccessful login (e.g., show an error message)

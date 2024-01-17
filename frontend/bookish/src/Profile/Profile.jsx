@@ -66,7 +66,7 @@ return (
        <p>Bio: {profileData.bio}</p>
        <p>Location: {profileData.location}</p>
        <div className='profile-buttons'>
-       <Link className='wishlist-profile'><h3>Rating</h3></Link>
+       <Link to={`/chatroom/${id}`} className='wishlist-profile-rating'><h3>Chat</h3></Link>
        <Link to={`/profile/wishlist/${id}`} className='wishlist-profile'><h3>WishList</h3></Link>
        <Link to={`/profile/bookshelf/${id}`} className='bookshelf-profile'><h3>Bookshelf</h3></Link>
        </div>
