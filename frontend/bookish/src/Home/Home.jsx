@@ -3,9 +3,11 @@ import './Home.css'
 import axios from 'axios'
 import NotifDetail from './NotifDetail'
 import { jwtDecode } from 'jwt-decode';
+import PleaseLogIn from '../PleaseLogIn';
 
 const Home = () => {
 
+const [auth, setAuth] = useState(null);
 const [data, setData] = useState(null);
 const [persdata, setPersData] = useState(null);
 const [info, setInfo] = useState(null);
@@ -20,6 +22,10 @@ useEffect(() => {
 
  getData();
 
+ const flo = localStorage.getItem('jwtToken');
+  if (flo) {
+    setAuth(true);
+  }
 
 
 },[persdata])
@@ -64,7 +70,9 @@ const getId = () => {
 
  console.log(persdata)
 
-  return (
+
+
+  return auth ? (
     <div className='anunturi-home-container'>
 
 <div className='anunturi-form-home-Container'>
@@ -83,7 +91,7 @@ const getId = () => {
 
 
     </div>
-  )
-}
+  ) : ( <PleaseLogIn />);
+};
 
 export default Home

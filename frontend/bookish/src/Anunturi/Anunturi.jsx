@@ -5,6 +5,7 @@ import { Link ,useNavigate } from 'react-router-dom';
 import PleaseLogin from "../PleaseLogIn";
 import axios from 'axios';
 import SearchBar from './Search';
+import { IoIosArrowDropleft,IoIosArrowDropright } from "react-icons/io";
 //aici avem anunturi cu pagination porning de la pagina 1 si primim data de pe  prima pagina, unde lle ducem ca prop pt anunt ca sa randeze componenta
 const Anunturi = () => {
 
@@ -80,15 +81,16 @@ const Anunturi = () => {
       <div className='anunturi-form-Container'>
         <div className='hero slide-in'>
           
-          <div>
+          <div className='searches'>
       <input
-         className='input-anunt'
+         className=' title-search'
          type="text"
          placeholder="Search by book title"
          value={searchParams.bookTitle}
          onChange={handleInputChange}
          name="bookTitle"
 />
+  <div className='two-searches'>
       <input className='input-anunt'
         type="text"
         placeholder="Location"
@@ -103,7 +105,7 @@ const Anunturi = () => {
         onChange={handleInputChange}
         name="genre"
       />
-    
+    </div>
       <ul>
         
         {/* {searchResults.map((result) => (
@@ -119,18 +121,18 @@ const Anunturi = () => {
           
       
         <div className='buttons'>
-        <button className='buton' onClick={() =>{
+        <IoIosArrowDropleft className='buton' onClick={() =>{
           if(count > 1 )
           (setCount(count-1))
          
           
-        }}>pre page</button>
-        <button className='buton' onClick={() =>{
+        }}/>
+        <IoIosArrowDropright className='buton' onClick={() =>{
           if(count < 2 )
           (setCount(count+1))
          
           
-        }}>next page</button>
+        }}/>
         </div>
         </div>
 

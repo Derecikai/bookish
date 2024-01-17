@@ -9,6 +9,9 @@ import { HiCubeTransparent } from "react-icons/hi";
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { FcKey } from "react-icons/fc";
+import { BsCalendar2Date } from "react-icons/bs";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 
 const DashAnunt = (item) => {
@@ -52,7 +55,10 @@ const formattedDate = date.toLocaleDateString();
         <HiUser className='user-logo' />
         {item.data.ownerID?.username}
         </div>
-          <h5>Conditie: {item.data.condition}</h5>
+          <h5>
+            <FcKey className='book-condition-logo' />
+            Conditie: {item.data.condition}</h5>
+            <FaRegCalendarAlt className='book-date-logo'/>
           {formattedDate}
        
       </div>
