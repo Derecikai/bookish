@@ -13,6 +13,7 @@ import DashEdit from './Dashboard/DashEdit';
 import Profile from './Profile/Profile';
 import Bookshelf from './Bookshelf/Bookshelf';
 import WishList from './WishList/WishList';
+import Home from './Home/Home'
 
 
 //Aici avem rutele si componentele specifice pt ele
@@ -33,6 +34,8 @@ const App = () => {
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/profile/bookshelf/:id" element={<Bookshelf />} />
         <Route path="/profile/wishlist/:id" element={<WishList />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );

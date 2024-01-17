@@ -61,11 +61,11 @@ padding-bottom: 15px;
 .anunturi-bookshelf-container {
   padding-top: 20px;
   width: 100%;
-  height: auto;
+  min-height: 700px;
   background-color: #32746D; /* Dark background color */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
   padding-bottom: 5px;
 }
@@ -74,7 +74,7 @@ padding-bottom: 15px;
   border-radius: 10px;
   padding-bottom: 20px;
   width: 80%;
-  background-color: #E9E3E6; /* Light background color */
+  background-color: #E9E3E6; 
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@ padding-bottom: 15px;
 .book {
  cursor: pointer;
   border: 1px solid #ddd;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
   /* background-color: #55280e;  */
   /* White background color for each book */

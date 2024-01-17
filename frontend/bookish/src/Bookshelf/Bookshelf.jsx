@@ -45,6 +45,15 @@ getdata();
    setCarte(param)
    console.log(carte.id)
   }
+  const deleteEntry = async (data) =>{
+    try{
+      const response = await axios.delete(`http://localhost:8080/profiles/bookshelf/delete?bookID=${data}&ownerID=${id}`)
+      window.location.reload();
+    }catch(err)
+    {
+      console.log(err);
+    }
+  }
 
   const addBook = async () => {
  try {
@@ -56,6 +65,7 @@ getdata();
       // Assuming the response contains updated bookshelf data
       // setData(response.data);
       setNewBookId(''); // Clear the input field after successful addition
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -77,12 +87,19 @@ getdata();
           </div>
 <div className="bookshelf">
       {data && data.map((book) => (
-        <div key={book.id} className="book" onClick={() => openModal(book)}>
-         <img className='bookshelf-img'  src={book.thumb} alt="" />
+        // <div key={book.id} className="book" onClick={() => openModal(book)}>
+        //  <img className='bookshelf-img'  src={book.thumb} alt="" />
        
           
          
-        </div>
+        // </div>
+        <div key={book.id} className="book" >
+          <div>
+         <img className='bookshelf-img'  onClick={() => openModal(book)} src={book.thumb} alt="" />
+         </div>
+         <div>
+         <button onClick={() => deleteEntry(book.id)}>Delete</button></div>
+         </div>
       ))}
     </div>
 
