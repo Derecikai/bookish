@@ -102,9 +102,9 @@ const onSubmit = async (formData) => {
 
     <p >{errors.password?.message}</p>
 
-    <Link to = "/signup" >Don't have an account, Sign Up</Link>
+    <Link to = "/signup" >Don't have an account? Sign Up</Link>
 
-    <input type='submit' />
+    <input placeholder='Log in' type='submit' value='Log in' />
    
    {loading && <div >Loading...</div>}
 

@@ -1,8 +1,10 @@
 package uvt.tw.bookish.controllers;
 
+import jakarta.websocket.server.PathParam;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,36 +22,46 @@ public class ExchangeController {
     @Autowired
     private ExchangeService exchangeService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Exchange> addExchange(@RequestBody ExchangeRequest exchange) {
         Exchange result = exchangeService.addExchange(exchange);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<List<Exchange>> getExchanges(@RequestParam(defaultValue = "1") int page,
-                                                       @RequestParam(defaultValue = "5") int pageSize) {
-        List<Exchange> result = exchangeService.getExchanges(page, pageSize);
-        return ResponseEntity.ok(result);
+    @GetMapping()
+    public ResponseEntity<?> getExchangesWithPaginationAndSearch(
+            @RequestParam(name = "bookTitle", required = false) String bookTitle,
+            @RequestParam(name = "genre", required = false) String genre,
+            @RequestParam(name = "location", required = false) String location,
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "5") int pageSize) {
+
+        if (bookTitle != null || genre != null || location != null) {
+            List<Exchange> searchResult = exchangeService.searchExchanges(bookTitle, genre, location);
+            return ResponseEntity.ok(searchResult);
+        } else {
+            List<Exchange> result = exchangeService.getExchanges(page, pageSize);
+            return ResponseEntity.ok(result);
+        }
     }
 
-    @GetMapping("/getExchange")
-    public ResponseEntity<Optional<Exchange>> getSpecificExchange(@RequestParam int id) {
+    @GetMapping("{id}")
+    public ResponseEntity<Optional<Exchange>> getSpecificExchange(@PathVariable int id) {
         Optional<Exchange> result = exchangeService.getExchangeByID(id);
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<Page<Exchange>> searchExchanges(
-            @RequestParam(name = "bookTitle", required = false) String bookTitle,
-            @RequestParam(name = "genre", required = false) String genre,
-            @RequestParam(name = "location", required = false) String location,
-            Pageable pageable) {
-        Page<Exchange> exchanges = exchangeService.searchExchanges(bookTitle, genre, location, pageable);
-        return ResponseEntity.ok(exchanges);
-    }
+//    @GetMapping("/search")
+//    public ResponseEntity<Page<Exchange>> searchExchanges(
+//            @RequestParam(name = "bookTitle", required = false) String bookTitle,
+//            @RequestParam(name = "genre", required = false) String genre,
+//            @RequestParam(name = "location", required = false) String location,
+//            Pageable pageable) {
+//        Page<Exchange> exchanges = exchangeService.searchExchanges(bookTitle, genre, location, pageable);
+//        return ResponseEntity.ok(exchanges);
+//    }
 
-    @PutMapping("/update/{id}")
+    @PutMapping()
     public ResponseEntity<Exchange> updateExchange(@PathVariable int id,
                                                    @RequestBody ExchangeRequest updatedExchange) {
         Exchange updated = exchangeService.updateExchange(id, updatedExchange);
@@ -61,8 +73,8 @@ public class ExchangeController {
         }
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteExchange(@RequestParam int id) {
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteExchange(@PathVariable int id) {
         boolean deleted = exchangeService.deleteExchange(id);
 
         if (deleted) {
@@ -71,9 +83,5 @@ public class ExchangeController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entry not found");
         }
     }
-    @GetMapping("/all")
-    public ResponseEntity<List<Exchange>> getAllExchanges() {
-        List<Exchange> exchanges = exchangeService.getAllExchanges();
-        return ResponseEntity.ok(exchanges);
-    }
+
 }

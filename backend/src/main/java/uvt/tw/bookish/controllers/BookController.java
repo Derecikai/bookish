@@ -21,23 +21,12 @@ public class BookController {
     @Autowired
     private GenreService genreService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Book> addBook(@RequestBody Book book) {
         Book result = bookService.addBook(book);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @PostMapping("/addGenre")
-    public ResponseEntity<Genre> addGenre(@RequestBody Genre genre) {
-        Genre result = genreService.addGenre(genre);
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
-    }
-
-    @GetMapping("/allGenre")
-    public ResponseEntity<List<Genre>> getAllGenres() {
-        List<Genre> genre = genreService.getAll();
-        return ResponseEntity.ok(genre);
-    }
 
     @GetMapping
     public ResponseEntity<List<Book>> getBookByFields(@RequestParam(required = false) Integer id,
@@ -54,9 +43,4 @@ public class BookController {
         }
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Book>> getAllBooks() {
-        List<Book> book = bookService.getAllBooks();
-        return ResponseEntity.ok(book);
-    }
 }

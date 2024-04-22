@@ -80,8 +80,8 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
-    public Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable) {
-        return exchangeRepository.searchExchanges(bookTitle, genre, location, pageable);
+    public List<Exchange> searchExchanges(String bookTitle, String genre, String location) {
+        return exchangeRepository.searchExchanges(bookTitle, genre, location);
     }
 
     @Override
