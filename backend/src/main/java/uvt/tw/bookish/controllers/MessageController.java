@@ -16,19 +16,19 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @PostMapping("/add")
+    //@PostMapping("/add")
     public ResponseEntity<Message> addMessage(@RequestBody MessageRequest request) {
         Message result = messageService.addMessage(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @GetMapping("/getSended/{id}")
+    @GetMapping("/{id}/sent")
     public ResponseEntity<List<Message>> getMessageSended(@PathVariable int id) {
         List<Message> result = messageService.getBySender(id);
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/getReceived/{id}")
+    @GetMapping("/{id}/received")
     public ResponseEntity<List<Message>> getMessageReceived(@PathVariable int id) {
         List<Message> result = messageService.getByReceiver(id);
         return ResponseEntity.ok(result);
