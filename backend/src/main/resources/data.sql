@@ -26,18 +26,6 @@ VALUES (
        );
 INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
 VALUES (
-           'jogoat@gmail.com',
-           '$2a$10$8mNAauzYAJbatkHAlmgfzOb.0biD5EDEqGQSYjRQJE5nUsLHzAxuq',
-           'jogoat@gmail.com',
-           'The Strongest Curse',
-           'https://images.gamebanana.com/img/ico/sprays/65511af0a3500.png',
-           'As Jogoat, the king of curses',
-           'Arad',
-           'defaul',
-           'USER'
-       );
-INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
-VALUES (
            'admin@yahoo.com',
            '$2a$10$BE0o4y9VgQX46ViwST7wpOBqRqLaIJVOPSUUbRzdq13rQ4m4TgU3C',
            'admin@yahoo.com',
