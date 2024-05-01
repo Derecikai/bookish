@@ -62,7 +62,7 @@ const token = localStorage.getItem('jwtToken');
       };
      console.log(exchangeData)
       try {
-        const response = await axios.post('http://localhost:8080/exchanges/add', exchangeData, {
+        const response = await axios.post('http://localhost:8080/exchanges', exchangeData, {
           headers: {
             'Content-Type': 'application/json',
             // Add any additional headers if needed

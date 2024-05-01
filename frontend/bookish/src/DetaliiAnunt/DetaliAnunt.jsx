@@ -20,8 +20,7 @@ const DetaliAnunt = () => {
 
  const anuntData = async () =>{
       try{
-
- const response = await axios.get(`http://localhost:8080/exchanges/getExchange?id=${id}`);
+ const response = await axios.get(`http://localhost:8080/exchanges/${id}`);
       console.log(response.data)
       setInfo(response.data);
     }

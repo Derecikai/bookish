@@ -44,7 +44,7 @@ export const users1 =
   { id:7,
     picture: 'https://wallpapers.com/images/high/yellow-cartoon-line-friend-sally-72t9u6u4yv9eyj1j.webp',
     name: 'Xaty Esber',
-    message: 'Sunt noob',
+    message: 'Iubesc crocsi medicali',
   }
 
   // Add more user objects as needed
