@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private ExchangeService exchangeService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User result = userService.addUser(user);
         return ResponseEntity.ok(result);
@@ -32,7 +32,7 @@ public class UserController {
         List<Exchange> result = exchangeService.getExchangeByOwnerID(userID);
         return ResponseEntity.status(HttpStatus.FOUND).body(result);
     }
-    @GetMapping("/all")
+    //@GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
