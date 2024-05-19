@@ -33,7 +33,7 @@ const Form = () => {
       
       console.log("This is the book we aded",data);
 
-      const response = await axios.post('http://localhost:8080/books/add', data);
+      const response = await axios.post('http://localhost:8080/books', data);
 
       if (response.status === 201) {
         console.log('Exchange announcement submitted successfully!');

@@ -35,7 +35,7 @@ const [profileEx,setProfileEx] = useState(null);
    
    try{
 
-   const respone = await axios.get(`http://localhost:8080/profiles?id=${id}`)
+   const respone = await axios.get(`http://localhost:8080/profiles/${id}`)
   console.log(respone.data)
    setProfileData(respone.data);
   }catch(err)

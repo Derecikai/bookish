@@ -20,9 +20,9 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
-    @GetMapping()
-    public ResponseEntity<UserInfoDAO> getUserInfo(@RequestParam int id) {
-        UserInfoDAO infoDAO = profileService.getUserInfo(id);
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserInfoDAO> getUserInfo(@PathVariable int userId) {
+        UserInfoDAO infoDAO = profileService.getUserInfo(userId);
         return ResponseEntity.ok(infoDAO);
     }
 
@@ -37,15 +37,15 @@ public class ProfileController {
         }
     }
 
-    @PostMapping("/bookshelf/add")
+    @PostMapping("/bookshelf")
     public ResponseEntity<Bookshelf> addBookshelfEntry(@RequestBody BookshelfRequest entry) {
         Bookshelf result = profileService.addBookshelfEntry(entry);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @DeleteMapping("/bookshelf/delete")
-    public ResponseEntity<String> deleteBookshelfEntry(@RequestParam int bookID,
-                                                       @RequestParam int ownerID) {
+    @DeleteMapping("/{ownerID}/bookshelf/{bookID}")
+    public ResponseEntity<String> deleteBookshelfEntry(@PathVariable int bookID,
+                                                       @PathVariable int ownerID) {
         boolean deleted = profileService.deleteBookshelfEntry(bookID, ownerID);
 
         if (deleted) {
@@ -66,15 +66,15 @@ public class ProfileController {
         }
     }
 
-    @PostMapping("/wishlist/add")
+    @PostMapping("/wishlist")
     public ResponseEntity<Wishlist> addWishlistEntry(@RequestBody BookshelfRequest entry) {
         Wishlist result = profileService.addWishlistEntry(entry);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @DeleteMapping("/wishlist/delete")
-    public ResponseEntity<String> deleteWishlistEntry(@RequestParam int bookID,
-                                                      @RequestParam int ownerID) {
+    @DeleteMapping("/{ownerID}/wishlist/{bookID}")
+    public ResponseEntity<String> deleteWishlistEntry(@PathVariable int bookID,
+                                                      @PathVariable int ownerID) {
         boolean deleted = profileService.deleteWishlistEntry(bookID, ownerID);
 
         if (deleted) {

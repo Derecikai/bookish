@@ -18,8 +18,52 @@ overflow: hidden;
    justify-content: center;
    align-items: center;
 }
-.login_form{
+.login_form {
    display: flex;
    flex-direction: column;
    text-align: center;
+   padding: 20px;
+   background-color: #32746D;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.login_form input{
+   margin: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+}
+
+.login_form button{
+   margin: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+   background-color: #32746D;
+   color: white;
+   cursor: pointer;
+}
+
+.login_form button:hover{
+   background-color: #1D4E89;
+}
+
+.login_form h1{
+   margin: 10px;
+}
+
+.login_form p{
+   margin: 10px;
+   color: #E9E3E6;
+}
+
+.login_form a{
+   color: #E9E3E6;
+   text-decoration: none;
+}
+
+.login_form a:hover{
+   color: #1D4E89;
 }

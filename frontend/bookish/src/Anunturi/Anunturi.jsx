@@ -35,10 +35,10 @@ const Anunturi = () => {
           const size = 5;
           const adjustedPage = currentPage > 1 ? currentPage - 1 : 0;
           
-          apiUrl = `http://localhost:8080/exchanges/search?${bookTitle ? `bookTitle=${bookTitle}&` : ''}${genre ? `genre=${genre}&` : ''}${location ? `location=${location}&` : ''}page=${0}&size=${size}`;
+          apiUrl = `http://localhost:8080/exchanges?page=${1}&pagesize=${5}&${bookTitle ? `bookTitle=${bookTitle}&` : ''}${genre ? `genre=${genre}&` : ''}${location ? `location=${location}&` : ''}`;
         } else {
         
-          apiUrl = `http://localhost:8080/exchanges/get?page=${count}`;
+          apiUrl = `http://localhost:8080/exchanges?page=${count}&pagesize=${5}`;
         }
 
         const response = await axios.get(apiUrl);

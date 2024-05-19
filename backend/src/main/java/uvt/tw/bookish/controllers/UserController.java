@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private ExchangeService exchangeService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User result = userService.addUser(user);
         return ResponseEntity.ok(result);

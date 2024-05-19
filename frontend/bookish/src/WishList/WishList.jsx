@@ -48,8 +48,8 @@ getdata();
 
 
   const deleteEntry = async (data) =>{
-    try{
-      const response = await axios.delete(`http://localhost:8080/profiles/wishlist/delete?bookID=${data}&ownerID=${id}`)
+    try{ 
+      const response = await axios.delete(`http://localhost:8080/profiles/${id}/wishlist/${data}`)
       window.location.reload();
     }catch(err)
     {
@@ -60,7 +60,7 @@ getdata();
   const addBook = async () => {
  try {
   console.log("",carte.id,newBookId)
-      const response = await axios.post('http://localhost:8080/profiles/wishlist/add', {
+      const response = await axios.post('http://localhost:8080/profiles/wishlist', {
         bookID: carte.id,
         userID: id,
       });

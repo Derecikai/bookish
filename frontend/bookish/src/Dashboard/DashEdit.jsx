@@ -56,6 +56,7 @@ const onSubmit = async (data) => {
       const updateData = {
         bookID1: data.bookID1,
         bookID2: data.bookID2,
+        ownerID: + id,
         comment: data.comment,
         exchangeDate: '2023-12-01',
         status: data.status,
@@ -65,7 +66,7 @@ const onSubmit = async (data) => {
       console.log(updateData.status)
 
       // Make PUT request to update data
-      await axios.put(`http://localhost:8080/exchanges/update/${id}`, updateData);
+      await axios.put(`http://localhost:8080/exchanges`,updateData);
       console.log('Data updated successfully');
     } catch (error) {
       console.error('Error updating data:', error);

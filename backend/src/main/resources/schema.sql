@@ -76,4 +76,3 @@ CREATE TABLE NOTIFICATIONS (
                                is_read BOOLEAN,
                                date DATE DEFAULT CURRENT_DATE
 );
-

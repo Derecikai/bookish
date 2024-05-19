@@ -1,4 +1,3 @@
-
 --Inserting sample user
 INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
 VALUES (
@@ -6,7 +5,7 @@ VALUES (
            '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
            'user@example.com',
            'John Doe',
-           'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png',
+           'https://media.discordapp.net/attachments/416683307686952972/931885238920036352/received_378872517377713.jpeg?ex=66113dc2&is=65fec8c2&hm=bfe509d0273412bd1e1b556754ffa3ca15ba529f117abd58b9a1b97703371ba5&=&format=webp&width=376&height=670',
            'This is a short bio about the user.',
            'Timisoara',
            'default',
@@ -24,6 +23,18 @@ VALUES (
         'Arad',
         'defaul',
         'USER'
+       );
+INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
+VALUES (
+           'admin@yahoo.com',
+           '$2a$10$BE0o4y9VgQX46ViwST7wpOBqRqLaIJVOPSUUbRzdq13rQ4m4TgU3C',
+           'admin@yahoo.com',
+           'admin',
+           'https://liquipedia.net/commons/images/thumb/4/41/Brawl_Buzz.png/600px-Brawl_Buzz.png',
+           'Buzz',
+           'Timis',
+           'default',
+           'ADMIN'
        );
 -- Inserting sample genres
 INSERT INTO GENRES (name) VALUES ('Action');
@@ -45,6 +56,9 @@ VALUES ('1984', 'George Orwell', 'https://images-na.ssl-images-amazon.com/images
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg', 2, '978-0-345-39180-3', 'A comedic science fiction series.');
 
+INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
+VALUES ('Chainsaw Man vol. 12', 'Tatsuki Fujimoto', 'https://static.wikia.nocookie.net/chainsaw-man/images/4/4e/Volume_12.png', 1, '978-1974721412', '
+Meet awkward high school student Asa Mitaka. She may have trouble getting along with her fellow students and the class pet devil chicken, but Asa has something special going for her. And it may lead her right to Chainsaw Man!');
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Shining', 'Stephen King', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg', 5, '978-0-385-12167-5', 'A horror novel about a familys winter stay at an isolated hotel.');
 

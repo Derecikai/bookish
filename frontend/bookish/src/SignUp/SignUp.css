@@ -22,4 +22,38 @@ overflow: hidden;
    display: flex;
    flex-direction: column;
    text-align: center;
+   padding: 20px;
+   background-color: #32746D;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup_form input{
+   margin: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+}
+
+.signup_form button{
+   margin: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+   background-color: #32746D;
+   color: white;
+   cursor: pointer;
+}
+
+.signup_form button:hover{
+   background-color: #1D4E89;
+}
+
+.signup_form h1{
+   margin: 10px;
+}
+
+.signup_form p{
+   margin: 10px;
+   color: #E9E3E6;
 }
