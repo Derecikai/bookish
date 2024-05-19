@@ -4,6 +4,8 @@ import axios from 'axios'
 import NotifDetail from './NotifDetail'
 import { jwtDecode } from 'jwt-decode';
 import PleaseLogIn from '../PleaseLogIn';
+import { Link } from 'react-router-dom';
+import exampleImage from './Screenshot_45.jpg';
 
 const Home = () => {
 
@@ -77,7 +79,8 @@ const getId = () => {
 
 <div className='anunturi-form-home-Container'>
  <div className='altcv'>
-   {/* {info &&<img src={info.profilePicture} alt="" />} */}
+  <h1 className='home-message'>Welcome back: <span className='different-font'>{info && info.username}</span></h1>
+  <img className='home-picture-bruh' src={exampleImage} alt="" />
  </div>
  <div className='notificari'>
   <h3 className='not-title'>Notificari</h3>

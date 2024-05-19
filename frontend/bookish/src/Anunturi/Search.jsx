@@ -56,7 +56,7 @@ const SearchBar = ({ onSelectBook }) => {
       </form>
 
       {/* Display search results */}
-      <ul>
+      <ul id = "search-result">
         {results.map((result) => (
           <li key={result.id}>
             {/* Display book information here */}

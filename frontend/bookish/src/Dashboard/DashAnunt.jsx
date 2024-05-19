@@ -24,7 +24,7 @@ const date = new Date(timestamp);
 
 const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:8080/exchanges/delete?id=${item.data.id}`);
+      const response = await axios.delete(`http://localhost:8080/exchanges/${item.data.id}`);
 
         // Handle success, e.g., redirect or update the UI
         console.log('Anunt deleted successfully');

@@ -121,25 +121,25 @@ const onSubmit = async (formData) => {
 
     <p >{errors.password?.message}</p>
 
-<p >email</p>
+<p >Email</p>
 
     <input  type='text' placeholder='email' {...register("email")}  />
 
     <p >{errors.email?.message}</p>
 
-<p >fullName</p>
+<p >Full Name</p>
 
-    <input  type='text' placeholder='Fullname' {...register("fullName")}  />
+    <input  type='text' placeholder='Full name' {...register("fullName")}  />
 
     <p >{errors.fullName?.message}</p>
 
-    <p >picturelink</p>
+    <p >Profile Picture</p>
 
-    <input  type='picture' placeholder='porfile-pic-link' {...register("profilePicture")}  />
+    <input  type='picture' placeholder='Link' {...register("profilePicture")}  />
 
     <p >{errors.profilepic?.message}</p>
 
-    <p >bio</p>
+    <p >Bio</p>
 
     <textarea placeholder='bio about you' {...register("bio")}  />
 

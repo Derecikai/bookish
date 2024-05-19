@@ -49,3 +49,39 @@ color: #02111B;
 .altcv{
  flex: 2;
 }
+.home-message{
+    text-align: center;
+    max-width: 840px;
+    font-size: 50px;
+}
+.different-font{
+    font-family:'Times New Roman', Times, serif;
+}
+.home-picture-bruh {
+  border-radius: 50%;
+  margin-left: 240px;
+  height: 400px;
+  box-shadow: 0 0 20px rgba(2, 17, 27, 0.6), 0 0 30px rgba(2, 17, 27, 0.4); /* Improved box shadow with multiple layers */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box-shadow to the transition for a smoother effect */
+
+  filter: grayscale(20%); /* Apply a slight grayscale effect to the picture */
+}
+
+/* Add hover effect to increase the grayscale effect */
+.home-picture-bruh:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* Add a border to the picture */
+.home-picture-bruh::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Border color */
+  box-sizing: border-box;
+  z-index: -1; /* Place the border behind the picture */
+}

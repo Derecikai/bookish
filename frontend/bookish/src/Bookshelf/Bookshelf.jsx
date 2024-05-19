@@ -47,7 +47,7 @@ getdata();
   }
   const deleteEntry = async (data) =>{
     try{
-      const response = await axios.delete(`http://localhost:8080/profiles/bookshelf/delete?bookID=${data}&ownerID=${id}`)
+      const response = await axios.delete(`http://localhost:8080/profiles/${id}/bookshelf/${data}`)
       window.location.reload();
     }catch(err)
     {
@@ -57,7 +57,7 @@ getdata();
 
   const addBook = async () => {
  try {
-      const response = await axios.post('http://localhost:8080/profiles/bookshelf/add', {
+      const response = await axios.post('http://localhost:8080/profiles/bookshelf', {
         bookID: carte.id,
         userID: id,
       });
