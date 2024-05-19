@@ -21,7 +21,7 @@ VALUES (
         'https://images.gamebanana.com/img/ico/sprays/65511af0a3500.png',
         'As Jogoat, the king of curses',
         'Arad',
-        'defaul',
+        'default',
         'USER'
        );
 INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
