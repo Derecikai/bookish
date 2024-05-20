@@ -1,7 +1,7 @@
 import React from "react";
 import "./Books.css";
 
-export default function Book({ stats, onClick, key }) {
+export default function Book({ stats, onClick }) {
   return (
     <div onClick={onClick} className="book-container">
       <img className="book-image-bk" src={stats.thumb} alt="" />

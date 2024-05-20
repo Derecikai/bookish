@@ -76,7 +76,7 @@ function BookList() {
       title: "Book 7",
       author: "Author 7",
       thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
+        "https://cdn.dribbble.com/userupload/14566459/file/original-20f61d7491b8d5be2f459aed441d18dd.png?resize=300x300&vertical=center",
     },
     {
       title: "Book 8",
