@@ -2,9 +2,7 @@ package uvt.tw.bookish.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.repositories.BookRepository;
 import uvt.tw.bookish.services.BookService;

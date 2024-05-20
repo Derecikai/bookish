@@ -1,7 +1,5 @@
 package uvt.tw.bookish.services;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import uvt.tw.bookish.controllers.requests.ExchangeRequest;
 import uvt.tw.bookish.entities.Exchange;
 

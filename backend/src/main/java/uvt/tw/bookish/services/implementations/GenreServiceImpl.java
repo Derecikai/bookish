@@ -1,6 +1,5 @@
 package uvt.tw.bookish.services.implementations;
 
-import org.hibernate.annotations.SecondaryRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uvt.tw.bookish.entities.Genre;

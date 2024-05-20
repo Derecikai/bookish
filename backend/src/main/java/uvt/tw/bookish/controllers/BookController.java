@@ -3,11 +3,8 @@ package uvt.tw.bookish.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import uvt.tw.bookish.entities.Book;
-import uvt.tw.bookish.entities.Genre;
-import uvt.tw.bookish.entities.User;
 import uvt.tw.bookish.services.BookService;
 import uvt.tw.bookish.services.GenreService;
 

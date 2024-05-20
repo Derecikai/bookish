@@ -5,14 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uvt.tw.bookish.controllers.requests.BookshelfRequest;
 import uvt.tw.bookish.controllers.requests.UserInfoDAO;
-import uvt.tw.bookish.entities.*;
+import uvt.tw.bookish.entities.Book;
+import uvt.tw.bookish.entities.Bookshelf;
+import uvt.tw.bookish.entities.User;
+import uvt.tw.bookish.entities.Wishlist;
 import uvt.tw.bookish.repositories.BookRepository;
 import uvt.tw.bookish.repositories.BookshelfRepository;
 import uvt.tw.bookish.repositories.UserRepository;
 import uvt.tw.bookish.repositories.WishlistRepository;
 import uvt.tw.bookish.services.ProfileService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
