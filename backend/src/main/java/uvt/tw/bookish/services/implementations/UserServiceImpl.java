@@ -26,4 +26,18 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    @Override
+    public boolean deleteUser(int id) {
+        if(userRepository.existsById(id)) {
+            try{userRepository.deleteById(id); }
+            catch (Exception e) {
+                return false;
+            }
+            userRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

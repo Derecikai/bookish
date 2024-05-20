@@ -36,6 +36,18 @@ VALUES (
            'default',
            'ADMIN'
        );
+INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
+VALUES (
+           'user',
+           '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
+           'dan@yahoo.com',
+            'Dan',
+            'https://media.discordapp.net/attachments/416683307686952972/931885238920036352/received_378872517377713.jpeg?ex=66113dc2&is=65fec8c2&hm=bfe509d0273412bd1e1b556754ffa3ca15ba529f117abd58b9a1b97703371ba5&=&format=webp&width=376&height=670',
+            'This is a short bio about the user.',
+            'Timisoara',
+            'default',
+            'USER'
+       );
 -- Inserting sample genres
 INSERT INTO GENRES (name) VALUES ('Action');
 INSERT INTO GENRES (name) VALUES ('Comedy');
@@ -57,8 +69,8 @@ INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg', 2, '978-0-345-39180-3', 'A comedic science fiction series.');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
-VALUES ('Chainsaw Man vol. 12', 'Tatsuki Fujimoto', 'https://static.wikia.nocookie.net/chainsaw-man/images/4/4e/Volume_12.png', 1, '978-1974721412', '
-Meet awkward high school student Asa Mitaka. She may have trouble getting along with her fellow students and the class pet devil chicken, but Asa has something special going for her. And it may lead her right to Chainsaw Man!');
+VALUES ('Chainsaw Man vol. 12', 'Tatsuki Fujimoto', 'https://static.wikia.nocookie.net/chainsaw-man/images/4/4e/Volume_12.png', 1, '978-1974721412', 'Meet awkward high school student Asa Mitaka. She may have trouble getting along with her fellow students and the class pet devil chicken, but Asa has something special going for her. And it may lead her right to Chainsaw Man!');
+
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Shining', 'Stephen King', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg', 5, '978-0-385-12167-5', 'A horror novel about a familys winter stay at an isolated hotel.');
 
@@ -97,6 +109,9 @@ INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 ('The Martian', 'Andy Weir', 'https://m.media-amazon.com/images/I/71SRkQ-DwZL._SL1500_.jpg', 4, '978-0-553-41802-6', 'A science fiction novel that follows an astronaut stranded on Mars and his struggle for survival.');
+
+INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
+('Adoroid 11010231224214427', 'Teniwoha, Usazaki Shiro, Ado', 'https://st.cdjapan.co.jp/pictures/l/03/37/NEOBK-2959598.jpg?v=1', 1, '9784048976619', 'A Story Depicting The Bonds with The Four Foundational Songs That Define Her Origins');
 
 --Inserting sample exchanges
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition)
@@ -141,6 +156,9 @@ INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
 
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
     (6, 1);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (19, 1);
 
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
     (7, 1);

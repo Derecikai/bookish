@@ -26,15 +26,28 @@ public class UserController {
         User result = userService.addUser(user);
         return ResponseEntity.ok(result);
     }
+//
+//    @GetMapping("/exchanges/{userID}")
+//    public ResponseEntity<List<Exchange>> getExchanges(@PathVariable int userID) {
+//        List<Exchange> result = exchangeService.getExchangeByOwnerID(userID);
+//        return ResponseEntity.status(HttpStatus.FOUND).body(result);
+//    }
 
-    @GetMapping("/exchanges/{userID}")
-    public ResponseEntity<List<Exchange>> getExchanges(@PathVariable int userID) {
-        List<Exchange> result = exchangeService.getExchangeByOwnerID(userID);
-        return ResponseEntity.status(HttpStatus.FOUND).body(result);
-    }
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
+    }
+
+    @DeleteMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+        boolean deleted = userService.deleteUser(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("User deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Can't delete mate");
+        }
     }
 }

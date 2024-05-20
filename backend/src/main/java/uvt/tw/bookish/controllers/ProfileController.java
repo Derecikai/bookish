@@ -9,7 +9,9 @@ import uvt.tw.bookish.controllers.requests.BookshelfRequest;
 import uvt.tw.bookish.controllers.requests.UserInfoDAO;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Bookshelf;
+import uvt.tw.bookish.entities.Exchange;
 import uvt.tw.bookish.entities.Wishlist;
+import uvt.tw.bookish.services.ExchangeService;
 import uvt.tw.bookish.services.ProfileService;
 
 import java.util.List;
@@ -20,13 +22,21 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+    @Autowired
+    private ExchangeService exchangeService;
+
     @GetMapping("/{userId}")
     public ResponseEntity<UserInfoDAO> getUserInfo(@PathVariable int userId) {
         UserInfoDAO infoDAO = profileService.getUserInfo(userId);
         return ResponseEntity.ok(infoDAO);
     }
 
-    @GetMapping("/bookshelf/{id}")
+    @GetMapping("/{userID}/exchanges")
+    public ResponseEntity<List<Exchange>> getExchanges(@PathVariable int userID) {
+        List<Exchange> result = exchangeService.getExchangeByOwnerID(userID);
+        return ResponseEntity.ok(result);
+    }
+    @GetMapping("/{id}/bookshelf")
     public ResponseEntity<List<Book>> getBookshelf(@PathVariable int id) {
         List<Book> result = profileService.getUserShelf(id);
         if(!result.isEmpty()) {
@@ -55,7 +65,7 @@ public class ProfileController {
         }
     }
 
-    @GetMapping("/wishlist/{id}")
+    @GetMapping("/{id}/wishlist")
     public ResponseEntity<List<Book>> getWishlist(@PathVariable int id) {
         List<Book> result = profileService.getUserWishlist(id);
         if(!result.isEmpty()) {
