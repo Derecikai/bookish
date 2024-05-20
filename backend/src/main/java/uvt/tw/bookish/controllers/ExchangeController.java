@@ -61,7 +61,7 @@ public class ExchangeController {
 //        return ResponseEntity.ok(exchanges);
 //    }
 
-    @PutMapping()
+    @PutMapping("{id}")
     public ResponseEntity<Exchange> updateExchange(@PathVariable int id,
                                                    @RequestBody ExchangeRequest updatedExchange) {
         Exchange updated = exchangeService.updateExchange(id, updatedExchange);

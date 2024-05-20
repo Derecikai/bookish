@@ -3,6 +3,7 @@ package uvt.tw.bookish.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Genre;
@@ -43,4 +44,22 @@ public class BookController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable int id,
+                                           @RequestBody Book updatedBook) {
+        Book result = bookService.updateBook(id, updatedBook);
+        return ResponseEntity.ok(result);
+    }
+
+    @DeleteMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> deleteBook(@PathVariable int id) {
+        boolean deleted = bookService.deleteBook(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("Book deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Can't delete mate");
+        }
+    }
 }
