@@ -10,4 +10,8 @@ public interface BookService {
     public List<Book> getAllBooks();
 
     List<Book> getBookByFields(Integer id, String title, String author, Integer genreID, String isbn);
+
+    Book updateBook(int id, Book updatedBook);
+
+    boolean deleteBook(int id);
 }

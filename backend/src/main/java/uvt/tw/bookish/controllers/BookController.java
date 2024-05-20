@@ -43,4 +43,21 @@ public class BookController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable int id,
+                                           @RequestBody Book updatedBook) {
+        Book result = bookService.updateBook(id, updatedBook);
+        return ResponseEntity.ok(result);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable int id) {
+        boolean deleted = bookService.deleteBook(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("Book deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Can't delete mate");
+        }
+    }
 }
