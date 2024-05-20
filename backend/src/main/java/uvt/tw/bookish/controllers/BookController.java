@@ -3,6 +3,7 @@ package uvt.tw.bookish.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Genre;
@@ -51,6 +52,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteBook(@PathVariable int id) {
         boolean deleted = bookService.deleteBook(id);
 
