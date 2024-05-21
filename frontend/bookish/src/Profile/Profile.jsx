@@ -1,91 +1,83 @@
-import React, { useEffect, useState } from 'react';
-import './Profile.css';
-import axios from 'axios';
-import { useParams,Link } from 'react-router-dom';
-import Anunt from '../Anunturi/Anunt';
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+import Anunt from "../Anunturi/Anunt";
 
 const Profile = () => {
+  const { id } = useParams();
+  const [profileData, setProfileData] = useState(null);
+  const [profileEx, setProfileEx] = useState(null);
 
-const {id} = useParams();
-const [profileData,setProfileData] = useState(null);
-const [profileEx,setProfileEx] = useState(null);
+  useEffect(() => {
+    const getdata = async () => {
+      try {
+        const respone = await axios.get(
+          `http://localhost:8080/profiles/${id}/exchanges`
+        );
+        console.log("This is adasdas", respone.data);
+        setProfileEx(respone.data);
+      } catch (err) {
+        console.log("The error is", err.response.data);
+      }
+    };
 
- useEffect(() =>{
+    getdata();
 
-  const getdata = async () =>{
+    const getProfile = async () => {
+      try {
+        const respone = await axios.get(`http://localhost:8080/profiles/${id}`);
+        console.log(respone.data);
+        setProfileData(respone.data);
+      } catch (err) {
+        console.log("The error is", err);
+      }
+    };
 
-   try{
+    getProfile();
+  }, []);
 
-   const respone = await axios.get(`http://localhost:8080/users/exchanges/${id}`)
-  console.log("This is adasdas",respone.data)
-  }catch(err)
-  {
-   console.log("The error is",err.response.data);
-   setProfileEx(err.response.data)
+  // console.log(profileData.profilePicture)
 
-
-  }
-
-  }
-
-  getdata();
-
-
-  const getProfile = async () =>{
-   
-   try{
-
-   const respone = await axios.get(`http://localhost:8080/profiles/${id}`)
-  console.log(respone.data)
-   setProfileData(respone.data);
-  }catch(err)
-  {
-   console.log("The error is",err);
-  }
-
-  }
-
-  getProfile();
-
- },[])
-
-// console.log(profileData.profilePicture)
-
-if(!profileData)
-return (
- <div>Waiting for data</div>
-)
+  if (!profileData) return <div>Waiting for data</div>;
 
   return (
-    <div className='anunturi-profile-container'>
-     <div className='anunturi-form-profile-Container'>
-      <div className='profile-data-1'>
-       <img className='profile-picture' src={profileData.profilePicture} alt="" />
-       <div className='profile-data-writing'>
-       <h1>{profileData.username}</h1>
-       <p>Bio: {profileData.bio}</p>
-       <p>Location: {profileData.location}</p>
-       <div className='profile-buttons'>
-       <Link to={`/chatroom/${id}`} className='wishlist-profile-rating'><h3>Chat</h3></Link>
-       <Link to={`/profile/wishlist/${id}`} className='wishlist-profile'><h3>WishList</h3></Link>
-       <Link to={`/profile/bookshelf/${id}`} className='bookshelf-profile'><h3>Bookshelf</h3></Link>
-       </div>
-       </div>
-       
-       </div>
-      <div className='profile-swaps'><h1>Swaps</h1></div>
-      
+    <div className="anunturi-profile-container">
+      <div className="anunturi-form-profile-Container">
+        <div className="profile-data-1">
+          <img
+            className="profile-picture"
+            src={profileData.profilePicture}
+            alt=""
+          />
+          <div className="profile-data-writing">
+            <h1>{profileData.username}</h1>
+            <p>Bio: {profileData.bio}</p>
+            <p>Location: {profileData.location}</p>
+            <div className="profile-buttons">
+              <Link to={`/chatroom/${id}`} className="wishlist-profile-rating">
+                <h3>Chat</h3>
+              </Link>
+              <Link to={`/profile/wishlist/${id}`} className="wishlist-profile">
+                <h3>WishList</h3>
+              </Link>
+              <Link
+                to={`/profile/bookshelf/${id}`}
+                className="bookshelf-profile"
+              >
+                <h3>Bookshelf</h3>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="profile-swaps">
+          <h1>Swaps</h1>
+        </div>
 
-          {profileEx && profileEx.map( item => (
-            
-              <Anunt data={item}/>
-             
-            ) )}
-       
-     
-     </div>
+        {profileEx && profileEx.map((item) => <Anunt data={item} />)}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

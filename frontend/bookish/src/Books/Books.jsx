@@ -3,10 +3,22 @@ import { useAuth } from "../Contexts/AuthContext";
 import { jwtDecode } from "jwt-decode";
 import "./Books.css";
 import Book from "./Book";
+import axios from "axios";
+import BookUpdate from "./BookUpdate";
 
 export default function Books() {
   const { logout, isLoggedIn } = useAuth();
   const [role, setRole] = useState("");
+  const [books, setBooks] = useState(null);
+  const data = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/books");
+      console.log(response.data);
+      setBooks(response.data);
+    } catch (err) {
+      console.log(err, err.message);
+    }
+  };
 
   const getId = () => {
     const token = localStorage.getItem("jwtToken");
@@ -18,12 +30,17 @@ export default function Books() {
 
   useEffect(() => {
     getId();
+    data();
   }, []);
 
-  return <div>{role === "ADMIN" ? <BookList /> : <NotPermision />}</div>;
+  return (
+    <div>
+      {role === "ADMIN" ? <BookList books={books} /> : <NotPermision />}
+    </div>
+  );
 }
 
-function BookList() {
+function BookList({ books }) {
   const [selectedBook, setSelectedBook] = useState(null);
 
   const openModal = (book) => {
@@ -35,64 +52,14 @@ function BookList() {
     setSelectedBook(null);
   };
 
-  const mockBooks = [
-    {
-      title: "Book 1",
-      author: "Author 1",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 2",
-      author: "Author 2",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 3",
-      author: "Author 3",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 4",
-      author: "Author 4",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 5",
-      author: "Author 5",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 6",
-      author: "Author 6",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 7",
-      author: "Author 7",
-      thumb:
-        "https://cdn.dribbble.com/userupload/14566459/file/original-20f61d7491b8d5be2f459aed441d18dd.png?resize=300x300&vertical=center",
-    },
-    {
-      title: "Book 8",
-      author: "Author 8",
-      thumb:
-        "https://cdn.dribbble.com/users/7970736/screenshots/18039333/media/461df9638f63fbbcb8cb2c64af4570ab.jpg?resize=300x300&vertical=center",
-    },
-  ];
-
   return (
     <div className="anunturi-container">
       <div className="anunturi-form-Container morepadding">
         <div className="books-grid">
-          {mockBooks.map((book, index) => (
-            <Book key={index} onClick={() => openModal(book)} stats={book} />
-          ))}
+          {books &&
+            books.map((book, index) => (
+              <Book key={index} onClick={() => openModal(book)} stats={book} />
+            ))}
         </div>
         {selectedBook && <Modal book={selectedBook} onClose={closeModal} />}
       </div>
@@ -112,11 +79,12 @@ function Modal({ onClose, book }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content updated-modal-content">
-        <div>sadsadas</div>
-        <h2>{book.title}</h2>
-        <button>Delete</button>
-        <button>Edit</button>
-        <button onClick={onClose}>Close</button>
+        <div className="form-for-books">
+          sadsadas
+          <BookUpdate book={book} />
+          <button onClick={onClose}>Close</button>
+        </div>
+        <h2>{book.id}</h2>
       </div>
     </div>
   );
