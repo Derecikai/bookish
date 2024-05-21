@@ -30,6 +30,7 @@
   transform: scale(1.02);
 }
 .book-title-bk {
+  margin: 0px;
   font-size: 0.8em;
   margin-bottom: 0.3em;
   color: #ffffff;
@@ -40,10 +41,12 @@
 }
 
 .book-author-bk {
+  margin-top: 5px;
   font-size: 0.7em;
   margin-bottom: 1em;
   color: #949494;
   margin-left: 5px;
+  text-align: left;
 }
 
 .book-image-bk {
@@ -56,7 +59,7 @@
 .updated-modal-content {
   background-image: url("https://cdn.dribbble.com/userupload/10995056/file/original-80284b44f1b79eba09332a48b2102365.png?resize=500x500&vertical=center");
   background-position: center;
-  box-shadow: 1px 1px 200px 5px #32746dc0;
+  box-shadow: 1px 1px 200px 5px #1e74bb8e;
   min-height: 500px;
 }
 .form-for-books {
@@ -65,14 +68,14 @@
 }
 
 .form-for-books {
-  background-color: #2E4057; /* Matches the dark background color */
+  background-color: #2e4057; /* Matches the dark background color */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   margin: 20px auto; /* Adds some space around the form */
-  font-family: 'Arial', sans-serif;
-  color: #FFFFFF; /* White text for contrast */
+  font-family: "Arial", sans-serif;
+  color: #ffffff; /* White text for contrast */
   text-align: center; /* Center-aligns the text */
 }
 
@@ -80,11 +83,11 @@
   width: calc(100% - 22px); /* Full width minus padding */
   padding: 10px;
   margin: 10px 0; /* Adds space between inputs */
-  border: 1px solid #CCCCCC; /* Light grey border */
+  border: 1px solid #cccccc; /* Light grey border */
   border-radius: 5px;
   font-size: 16px;
-  background-color: #3C5874; /* Slightly lighter dark background */
-  color: #FFFFFF; /* White text */
+  background-color: #3c5874; /* Slightly lighter dark background */
+  color: #ffffff; /* White text */
 }
 
 .form-for-books button {
@@ -92,7 +95,7 @@
   margin: 10px 5px; /* Space between buttons */
   border: none;
   border-radius: 5px;
-  background-color: #1E75BB; /* Matches the blue accent color */
+  background-color: #1e75bb; /* Matches the blue accent color */
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -100,17 +103,17 @@
 }
 
 .form-for-books button:hover {
-  background-color: #145A87; /* Darker shade of blue for hover */
+  background-color: #145a87; /* Darker shade of blue for hover */
 }
 
 .form-for-books button:focus {
   outline: none;
-  box-shadow: 0 0 3px #145A87; /* Matches hover color */
+  box-shadow: 0 0 3px #145a87; /* Matches hover color */
 }
 
 h2 {
   text-align: center;
-  color: #FFFFFF; /* White text */
+  color: #ffffff; /* White text */
   font-size: 24px;
   margin-top: 20px;
 }

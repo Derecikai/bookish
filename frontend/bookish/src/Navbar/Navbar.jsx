@@ -16,7 +16,6 @@ const Navbar = () => {
       const token = localStorage.getItem("jwtToken");
       if (token && isLoggedIn) {
         const decoded = jwtDecode(token);
-        console.log("ROLE!!!!!!!!!!!!!!!", decoded.role);
         setRole(decoded.role);
       }
     };
@@ -53,7 +52,7 @@ const Navbar = () => {
           </li>
           <li>
             {role === "ADMIN" ? (
-              <Link to={"/personal"}>Users</Link>
+              <Link to={"/users"}>Users</Link>
             ) : (
               <Link to={"/personal"}>Personal</Link>
             )}

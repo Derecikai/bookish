@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+.profile-users {
+  min-height: 40px;
+  min-width: 260px;
+  font-size: 10px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 9px;
+  padding: 10px;
+  transition: all ease-in 0.2s;
+}
+.profile-users:hover {
+  border: 1px solid #ffffff;
+  box-shadow: 14px 14px 220px 4px #32746d69;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.profile-pic-profiles {
+  width: 50px;
+  height: 50px;
+  border-radius: 45%;
+}
+.username-profiles {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  max-width: 200px;
+  min-height: 70px;
+}
+.top-dawg {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.delete-profile {
+  text-decoration: none;
+  background-color: rgb(236, 13, 13);
+  border: none;
+  padding: 10px;
+  border-radius: 9px;
+  color: white;
+  cursor: pointer;
+}

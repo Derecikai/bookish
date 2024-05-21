@@ -16,6 +16,7 @@ import WishList from "./WishList/WishList";
 import Home from "./Home/Home";
 import ChatRoom from "./ChatRoom/ChatRoom";
 import Books from "./Books/Books";
+import CheckUsers from "./Users/Users";
 
 //Aici avem rutele si componentele specifice pt ele
 
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/users" element={<CheckUsers />} />
 
         {/* /chatroom/${persdata.sub} */}
       </Routes>
