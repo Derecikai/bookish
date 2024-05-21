@@ -5,7 +5,7 @@ VALUES (
            '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
            'user@example.com',
            'John Doe',
-           'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png/revision/latest/scale-to-width-down/1200?cb=20170716092103',
+           'https://cdn.dribbble.com/userupload/12140363/file/original-84dd24aae3fab58e1e06708a22f235e7.png?resize=900x900',
            'This is a short bio about the user.',
            'Timisoara',
            'default',
