@@ -1,7 +1,9 @@
 package uvt.tw.bookish.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uvt.tw.bookish.controllers.requests.BookshelfRequest;
@@ -13,6 +15,7 @@ import uvt.tw.bookish.entities.Wishlist;
 import uvt.tw.bookish.services.ExchangeService;
 import uvt.tw.bookish.services.ProfileService;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 @RestController
@@ -93,4 +96,20 @@ public class ProfileController {
         }
     }
 
+
+    @GetMapping("/{id}/export/csv")
+    public ResponseEntity<byte[]> exportBooksToCSV(@PathVariable int id) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        profileService.writeBooksToCSV(outputStream,id);
+        byte[] csvData = outputStream.toByteArray();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.csv");
+        headers.setContentType(MediaType.TEXT_PLAIN);
+        headers.setContentLength(csvData.length);
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(csvData);
+    }
 }

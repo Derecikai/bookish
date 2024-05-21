@@ -6,6 +6,7 @@ import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.entities.Bookshelf;
 import uvt.tw.bookish.entities.Wishlist;
 
+import java.io.OutputStream;
 import java.util.List;
 
 public interface ProfileService {
@@ -21,4 +22,6 @@ public interface ProfileService {
 
     boolean deleteWishlistEntry(int bookID, int ownerID);
     UserInfoDAO getUserInfo(int id);
+
+    public void writeBooksToCSV(OutputStream outputStream, int id);
 }

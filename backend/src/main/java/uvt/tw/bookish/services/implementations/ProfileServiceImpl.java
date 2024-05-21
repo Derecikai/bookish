@@ -1,6 +1,8 @@
 package uvt.tw.bookish.services.implementations;
 
 import jakarta.transaction.Transactional;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uvt.tw.bookish.controllers.requests.BookshelfRequest;
@@ -15,6 +17,9 @@ import uvt.tw.bookish.repositories.UserRepository;
 import uvt.tw.bookish.repositories.WishlistRepository;
 import uvt.tw.bookish.services.ProfileService;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -120,5 +125,21 @@ public class ProfileServiceImpl implements ProfileService {
                 .build();
 
         return infoDAO;
+    }
+
+    @Override
+    public void writeBooksToCSV(OutputStream outputStream, int id) {
+        List<Book> books = bookshelfRepository.findByOwnerID_Id(id)
+                .stream()
+                .map(Bookshelf::getBookID)
+                .toList();
+        try (OutputStreamWriter writer = new OutputStreamWriter(outputStream);
+             CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("ID", "Title", "Author", "Thumbnail", "GenreID", "ISBN","Description"))) {
+            for (Book book : books) {
+                csvPrinter.printRecord(book.getId(), book.getTitle(), book.getAuthor(), book.getThumb(), book.getGenreID(), book.getISBN(), book.getDescription());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to write CSV", e);
+        }
     }
 }

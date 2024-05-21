@@ -5,7 +5,7 @@ VALUES (
            '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
            'user@example.com',
            'John Doe',
-           'https://media.discordapp.net/attachments/416683307686952972/931885238920036352/received_378872517377713.jpeg?ex=66113dc2&is=65fec8c2&hm=bfe509d0273412bd1e1b556754ffa3ca15ba529f117abd58b9a1b97703371ba5&=&format=webp&width=376&height=670',
+           'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png/revision/latest/scale-to-width-down/1200?cb=20170716092103',
            'This is a short bio about the user.',
            'Timisoara',
            'default',
@@ -112,6 +112,9 @@ INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 ('Adoroid 11010231224214427', 'Teniwoha, Usazaki Shiro, Ado', 'https://st.cdjapan.co.jp/pictures/l/03/37/NEOBK-2959598.jpg?v=1', 1, '9784048976619', 'A Story Depicting The Bonds with The Four Foundational Songs That Define Her Origins');
+
+INSERT INTo BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
+('The Setting Sun', 'Osamu Dazai', 'https://m.media-amazon.com/images/I/31uHNghGUbL._SY445_SX342_.jpg', 3, '9780811200325', 'The Setting Sun is a brief but powerful novel about a family in the aftermath of World War II.');
 
 --Inserting sample exchanges
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition)
