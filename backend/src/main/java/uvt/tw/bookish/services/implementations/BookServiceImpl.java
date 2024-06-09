@@ -94,4 +94,9 @@ public class BookServiceImpl implements BookService {
             return false;
         }
     }
+
+    @Override
+    public Book getBookById(int id) {
+        return bookRepository.findById(id).orElse(null);
+    }
 }

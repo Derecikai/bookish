@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import uvt.tw.bookish.controllers.requests.BookshelfRequest;
 import uvt.tw.bookish.controllers.requests.UserInfoDAO;
 import uvt.tw.bookish.entities.Book;
@@ -111,5 +112,21 @@ public class ProfileController {
         return ResponseEntity.ok()
                 .headers(headers)
                 .body(csvData);
+    }
+
+    @PostMapping(value = "/import/csv", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> importBooksFromCSV(
+            @RequestPart("file") MultipartFile file,
+            @RequestParam("userID") int userID) {
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload a valid CSV file");
+        }
+
+        try {
+            profileService.importBooksFromCSV(file, userID);
+            return ResponseEntity.ok("Books imported successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to import books: " + e.getMessage());
+        }
     }
 }
