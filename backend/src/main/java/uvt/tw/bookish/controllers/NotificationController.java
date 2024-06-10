@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/notifications")
-@Tag(name = "Notification Management System", description = "Operations pertaining to notifications in Notification Management System")
+@Tag(name = "Notification Endpoints", description = "Operations pertaining to notifications in Notification Management System")
 public class NotificationController {
     @Autowired
     private NotificationService notificationService;

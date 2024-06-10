@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/messages")
-@Tag(name = "Message Management System", description = "Operations pertaining to messages in Message Management System")
+@Tag(name = "Message Endpoints", description = "Operations pertaining to messages in Message Management System")
 public class MessageController {
     @Autowired
     private MessageService messageService;
