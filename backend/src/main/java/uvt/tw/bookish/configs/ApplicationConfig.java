@@ -16,10 +16,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import uvt.tw.bookish.repositories.UserRepository;
 
 @Configuration
-@RequiredArgsConstructor
 public class ApplicationConfig {
 
     private final UserRepository userRepository;
+
+    public ApplicationConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Bean
     public UserDetailsService userDetailsService() {

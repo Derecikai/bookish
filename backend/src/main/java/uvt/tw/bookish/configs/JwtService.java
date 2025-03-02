@@ -50,6 +50,8 @@ public class JwtService {
             Map<String, Object> extraClaims,
             User user
     ) {
+        extraClaims.put("role", user.getRole()); // Add user role
+        extraClaims.put("email", user.getEmail()); // Add user email
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
