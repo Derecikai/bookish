@@ -1,84 +1,115 @@
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
-import axios from 'axios';
-import "./Form.css"
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import axios from "axios";
+import "./Form.css";
 
 //aici este un formular, vezi sign up pt explicatie formular, si aici practic adauga o carte in db, daca utilizatorul nu gasestre cartea.
 
 const schema = Yup.object().shape({
-  title: Yup.string().required('Title is required'),
-  author: Yup.string().required('Author is required'),
-  thumb: Yup.string().url('Invalid URL format'),
+  title: Yup.string().required("Title is required"),
+  author: Yup.string().required("Author is required"),
+  thumb: Yup.string().url("Invalid URL format"),
   genreID: Yup.object().shape({
-    id: Yup.number().required('Genre ID is required'),
-    genreName: Yup.string().required('Genre Name is required'),
+    id: Yup.number().required("Genre ID is required"),
+    genreName: Yup.string().required("Genre Name is required"),
   }),
-  isbn: Yup.string().min(4).max(100).required('ISBN is required'),
-  description: Yup.string().required('Description is required'),
+  isbn: Yup.string().min(4).max(100).required("ISBN is required"),
+  description: Yup.string().required("Description is required"),
 });
 
 const Form = () => {
+  const genres = {
+    1: "Action",
+    2: "Comedy",
+    3: "Drama",
+    4: "Sci-Fi",
+    5: "Horror",
+  };
 
+  const handleGenreIDChange = (e) => {
+    const genreID = e.target.value;
+    const genreName = genres[genreID];
+    if (genreName) {
+      document.getElementById("genreID.genreName").value = genreName;
+    }
+  };
 
-
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
- const onSubmit = async (data) => {
+  const onSubmit = async (data) => {
     try {
       // Ensure that both books are selected
-      
-      console.log("This is the book we aded",data);
 
-      const response = await axios.post('http://localhost:8080/books/add', data);
+      console.log("This is the book we aded", data);
+
+      const response = await axios.post("http://localhost:8080/books", data);
 
       if (response.status === 201) {
-        console.log('Exchange announcement submitted successfully!');
+        console.log("Exchange announcement submitted successfully!");
         // Handle success, e.g., redirect to another page
       } else {
-        console.error('Failed to submit exchange announcement.');
+        console.error("Failed to submit exchange announcement.");
         // Handle error, e.g., show an error message to the user
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <form className='yo' onSubmit={handleSubmit(onSubmit)}>
+    <form className="yo" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="title">Title</label>
-      <input type="text" id="title" {...register('title')} />
+      <input type="text" id="title" {...register("title")} />
       <p>{errors.title?.message}</p>
 
       <label htmlFor="author">Author</label>
-      <input type="text" id="author" {...register('author')} />
+      <input type="text" id="author" {...register("author")} />
       <p>{errors.author?.message}</p>
 
       <label htmlFor="thumb">Picture URL</label>
-      <input type="text" id="thumb" {...register('thumb')} />
+      <input type="text" id="thumb" {...register("thumb")} />
       <p>{errors.author?.thumb}</p>
 
       <label htmlFor="genreID.id">Genre ID</label>
-      <input type="number" id="genreID.id" {...register('genreID.id')} />
+      <select
+        id="genreID.id"
+        {...register("genreID.id")}
+        onChange={handleGenreIDChange}
+      >
+        <option value="">Select Genre</option>
+        {Object.keys(genres).map((id) => (
+          <option key={id} value={id}>
+            {genres[id]}
+          </option>
+        ))}
+      </select>
       <p>{errors.genreID?.id?.message}</p>
 
       <label htmlFor="genreID.genreName">Genre Name</label>
-      <input type="text" id="genreID.genreName" {...register('genreID.genreName')} />
+      <input
+        type="text"
+        id="genreID.genreName"
+        {...register("genreID.genreName")}
+      />
       <p>{errors.genreID?.genreName?.message}</p>
 
       <label htmlFor="isbn">ISBN</label>
-      <input type="text" id="isbn" {...register('isbn')} />
+      <input type="text" id="isbn" {...register("isbn")} />
       <p>{errors.isbn?.message}</p>
 
       <label htmlFor="description">Description</label>
-      <textarea id="description" {...register('description')} />
+      <textarea id="description" {...register("description")} />
       <p>{errors.description?.message}</p>
 
       <button type="submit">Submit</button>
-      
     </form>
   );
 };

@@ -1,8 +1,9 @@
 package uvt.tw.bookish.chatroom;
 
-import lombok.*;
-import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

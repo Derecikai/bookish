@@ -1,5 +1,6 @@
 package uvt.tw.bookish.configs;
 
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,8 +42,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
         jwt = authHeader.substring(7);
-        userEmail = jwtService.extractUsername(jwt);
+        //System.out.println(authHeader);
+        Claims claims = jwtService.extractAllClaims(jwt);
+        System.out.println(claims);
+        System.out.println(claims.get("email",String.class));
+        userEmail = claims.get("email",String.class);
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            System.out.println("User email: " + userEmail);
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
             if (jwtService.isTokenValid(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

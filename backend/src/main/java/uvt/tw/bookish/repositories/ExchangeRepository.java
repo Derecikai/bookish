@@ -1,11 +1,8 @@
 package uvt.tw.bookish.repositories;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import uvt.tw.bookish.entities.Exchange;
-import uvt.tw.bookish.entities.User;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public interface ExchangeRepository extends JpaRepository<Exchange, Integer> {
             "   OR LOWER(b2.title) LIKE LOWER(CONCAT('%', :bookTitle, '%')) " +
             "   OR LOWER(b1.genreID.name) LIKE LOWER(CONCAT('%', :genre, '%')) " +
             "   OR LOWER(u.location) LIKE LOWER(CONCAT('%', :location, '%'))")
-    Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable);
+    List<Exchange> searchExchanges(String bookTitle, String genre, String location);
 
     List<Exchange> findByOwnerID_Id(int ownerID);
 }

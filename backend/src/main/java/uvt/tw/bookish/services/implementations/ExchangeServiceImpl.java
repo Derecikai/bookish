@@ -7,14 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import uvt.tw.bookish.controllers.requests.ExchangeRequest;
-import uvt.tw.bookish.entities.Book;
-import uvt.tw.bookish.entities.Exchange;
-import uvt.tw.bookish.entities.User;
-import uvt.tw.bookish.entities.Wishlist;
-import uvt.tw.bookish.repositories.BookRepository;
-import uvt.tw.bookish.repositories.ExchangeRepository;
-import uvt.tw.bookish.repositories.UserRepository;
-import uvt.tw.bookish.repositories.WishlistRepository;
+import uvt.tw.bookish.entities.*;
+import uvt.tw.bookish.repositories.*;
 import uvt.tw.bookish.services.ExchangeService;
 import uvt.tw.bookish.services.NotificationService;
 
@@ -28,6 +22,9 @@ public class ExchangeServiceImpl implements ExchangeService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     @Autowired
     private NotificationService notificationService;
@@ -80,8 +77,8 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
-    public Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable) {
-        return exchangeRepository.searchExchanges(bookTitle, genre, location, pageable);
+    public List<Exchange> searchExchanges(String bookTitle, String genre, String location) {
+        return exchangeRepository.searchExchanges(bookTitle, genre, location);
     }
 
     @Override
@@ -90,6 +87,12 @@ public class ExchangeServiceImpl implements ExchangeService {
 
         if(result.isPresent()) {
             exchangeRepository.delete(result.get());
+
+            List<Notification> notifs = notificationRepository.findByBookId(result.get().getBookID1().getId());
+
+            //String message = "A new book is available: " + book1.getTitle();
+            notificationRepository.deleteAll(notifs);
+
             return true;
         }
         else {

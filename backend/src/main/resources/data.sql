@@ -5,7 +5,7 @@ VALUES (
            '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
            'user@example.com',
            'John Doe',
-           'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/user-profile-icon.png',
+           'https://cdn.dribbble.com/userupload/12140363/file/original-84dd24aae3fab58e1e06708a22f235e7.png?resize=900x900',
            'This is a short bio about the user.',
            'Timisoara',
            'default',
@@ -21,8 +21,32 @@ VALUES (
         'https://images.gamebanana.com/img/ico/sprays/65511af0a3500.png',
         'As Jogoat, the king of curses',
         'Arad',
-        'defaul',
+        'default',
         'USER'
+       );
+INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
+VALUES (
+           'admin@yahoo.com',
+           '$2a$10$BE0o4y9VgQX46ViwST7wpOBqRqLaIJVOPSUUbRzdq13rQ4m4TgU3C',
+           'admin@yahoo.com',
+           'admin',
+           'https://liquipedia.net/commons/images/thumb/4/41/Brawl_Buzz.png/600px-Brawl_Buzz.png',
+           'Buzz',
+           'Timis',
+           'default',
+           'ADMIN'
+       );
+INSERT INTO _USERS (username, password, email, full_name, profile_picture, bio, location, privacy_settings, role)
+VALUES (
+           'user',
+           '$2a$10$ZuavTgJsGIUj9bS5aBv2NekETlRuAv/RcHykbqgAnlpy8STNCdvNO', -- Assuming this is the hashed password
+           'dan@yahoo.com',
+            'Dan',
+            'https://media.discordapp.net/attachments/416683307686952972/931885238920036352/received_378872517377713.jpeg?ex=66113dc2&is=65fec8c2&hm=bfe509d0273412bd1e1b556754ffa3ca15ba529f117abd58b9a1b97703371ba5&=&format=webp&width=376&height=670',
+            'This is a short bio about the user.',
+            'Timisoara',
+            'default',
+            'USER'
        );
 -- Inserting sample genres
 INSERT INTO GENRES (name) VALUES ('Action');
@@ -43,6 +67,9 @@ VALUES ('1984', 'George Orwell', 'https://images-na.ssl-images-amazon.com/images
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg', 2, '978-0-345-39180-3', 'A comedic science fiction series.');
+
+INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
+VALUES ('Chainsaw Man vol. 12', 'Tatsuki Fujimoto', 'https://static.wikia.nocookie.net/chainsaw-man/images/4/4e/Volume_12.png', 1, '978-1974721412', 'Meet awkward high school student Asa Mitaka. She may have trouble getting along with her fellow students and the class pet devil chicken, but Asa has something special going for her. And it may lead her right to Chainsaw Man!');
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description)
 VALUES ('The Shining', 'Stephen King', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg', 5, '978-0-385-12167-5', 'A horror novel about a familys winter stay at an isolated hotel.');
@@ -82,6 +109,12 @@ INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 
 INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
 ('The Martian', 'Andy Weir', 'https://m.media-amazon.com/images/I/71SRkQ-DwZL._SL1500_.jpg', 4, '978-0-553-41802-6', 'A science fiction novel that follows an astronaut stranded on Mars and his struggle for survival.');
+
+INSERT INTO BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
+('Adoroid 11010231224214427', 'Teniwoha, Usazaki Shiro, Ado', 'https://st.cdjapan.co.jp/pictures/l/03/37/NEOBK-2959598.jpg?v=1', 1, '9784048976619', 'A Story Depicting The Bonds with The Four Foundational Songs That Define Her Origins');
+
+INSERT INTo BOOKS (title, author, thumb, genre_id, ISBN, description) VALUES
+('The Setting Sun', 'Osamu Dazai', 'https://m.media-amazon.com/images/I/31uHNghGUbL._SY445_SX342_.jpg', 3, '9780811200325', 'The Setting Sun is a brief but powerful novel about a family in the aftermath of World War II.');
 
 --Inserting sample exchanges
 INSERT INTO EXCHANGES (book_id_1, book_id_2, owner_id, exchange_date, status, condition)
@@ -126,6 +159,9 @@ INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
 
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
     (6, 1);
+
+INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
+    (19, 1);
 
 INSERT INTO BOOKSHELF (book_id, owner_id) VALUES
     (7, 1);

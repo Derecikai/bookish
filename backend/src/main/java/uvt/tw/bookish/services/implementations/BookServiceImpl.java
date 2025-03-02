@@ -2,9 +2,7 @@ package uvt.tw.bookish.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import uvt.tw.bookish.entities.Book;
 import uvt.tw.bookish.repositories.BookRepository;
 import uvt.tw.bookish.services.BookService;
@@ -63,5 +61,42 @@ public class BookServiceImpl implements BookService {
         }
 
         return bookList;
+    }
+
+    @Override
+    public Book updateBook(int id, Book updatedBook) {
+        Book existingBook = bookRepository.findById(id).orElse(null);
+
+        if(existingBook != null) {
+            existingBook.setAuthor(updatedBook.getAuthor());
+            existingBook.setGenreID(updatedBook.getGenreID());
+            existingBook.setISBN(updatedBook.getISBN());
+            existingBook.setTitle(updatedBook.getTitle());
+            existingBook.setDescription(updatedBook.getDescription());
+            existingBook.setThumb(updatedBook.getThumb());
+
+            return bookRepository.save(existingBook);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean deleteBook(int id) {
+        if(bookRepository.existsById(id)) {
+            try{bookRepository.deleteById(id); }
+            catch (Exception e) {
+                return false;
+            }
+            bookRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Book getBookById(int id) {
+        return bookRepository.findById(id).orElse(null);
     }
 }

@@ -1,7 +1,5 @@
 package uvt.tw.bookish.services;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import uvt.tw.bookish.controllers.requests.ExchangeRequest;
 import uvt.tw.bookish.entities.Exchange;
 
@@ -18,7 +16,7 @@ public interface ExchangeService {
     Optional<Exchange> getExchangeByID(int id);
 
     public List<Exchange> getExchangeByOwnerID(int id);
-    public Page<Exchange> searchExchanges(String bookTitle, String genre, String location, Pageable pageable);
+    public List<Exchange> searchExchanges(String bookTitle, String genre, String location);
 
     boolean deleteExchange(int id);
 

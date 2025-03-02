@@ -1,18 +1,26 @@
 package uvt.tw.bookish.services.implementations;
 
 import jakarta.transaction.Transactional;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import uvt.tw.bookish.controllers.requests.BookshelfRequest;
 import uvt.tw.bookish.controllers.requests.UserInfoDAO;
-import uvt.tw.bookish.entities.*;
+import uvt.tw.bookish.entities.Book;
+import uvt.tw.bookish.entities.Bookshelf;
+import uvt.tw.bookish.entities.User;
+import uvt.tw.bookish.entities.Wishlist;
 import uvt.tw.bookish.repositories.BookRepository;
 import uvt.tw.bookish.repositories.BookshelfRepository;
 import uvt.tw.bookish.repositories.UserRepository;
 import uvt.tw.bookish.repositories.WishlistRepository;
 import uvt.tw.bookish.services.ProfileService;
 
-import java.util.ArrayList;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -118,5 +126,48 @@ public class ProfileServiceImpl implements ProfileService {
                 .build();
 
         return infoDAO;
+    }
+
+    @Override
+    public void writeBooksToCSV(OutputStream outputStream, int id) {
+        List<Book> books = bookshelfRepository.findByOwnerID_Id(id)
+                .stream()
+                .map(Bookshelf::getBookID)
+                .toList();
+        try (OutputStreamWriter writer = new OutputStreamWriter(outputStream);
+             CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("ID", "Title", "Author", "Thumbnail", "GenreID", "ISBN","Description"))) {
+            for (Book book : books) {
+                csvPrinter.printRecord(book.getId(), book.getTitle(), book.getAuthor(), book.getThumb(), book.getGenreID(), book.getISBN(), book.getDescription());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to write CSV", e);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void importBooksFromCSV(MultipartFile file, int userID) {
+        try (Reader reader = new InputStreamReader(file.getInputStream());
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
+
+            for (CSVRecord record : csvParser) {
+                String title = record.get("Title");
+                String author = record.get("Author");
+                String isbn = record.get("ISBN");
+
+                // Find or create the book
+                Book book = bookRepository.findBookByTitle(title);
+
+                // Create the BookshelfRequest
+                BookshelfRequest entry = new BookshelfRequest();
+                entry.setBookID(book.getId());
+                entry.setUserID(userID);
+
+                // Add to bookshelf
+                addBookshelfEntry(entry);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to parse CSV file", e);
+        }
     }
 }
